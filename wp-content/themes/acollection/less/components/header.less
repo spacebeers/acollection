@@ -1,0 +1,126 @@
+.site-header {
+    border-top: @bar-height solid @primary;
+    border-bottom: @border-size solid @palette-dark;
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 20px;
+    margin: @bar-height 0;
+    @media (min-width: @grid-float-breakpoint) {
+        display: flex;
+        padding: 30px 20px 30px 20px;
+    }
+    justify-content: space-around;
+
+    .section {
+        flex: 1;
+        margin: 0;
+    }
+
+    .header-info {
+        text-align: center;
+        font-size: 1.2rem;
+        @media (min-width: @grid-float-breakpoint) {
+            text-align: right;
+            font-size: 1.4rem;
+        }
+        font-weight: 600;
+    }
+
+    .header-brand {
+        flex: 0 0 380px;
+        text-align: center;
+        margin: auto;
+
+        img {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+            @media (min-width: @grid-float-breakpoint) {
+                 width: 380px;
+                 max-width: 380px;
+                 margin-bottom: 0;
+            }
+            height: auto;
+        }
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        text-transform: uppercase;
+
+        @media (min-width: @grid-float-breakpoint) {
+            justify-content: flex-start;
+        }
+
+        > li {
+            position: relative;
+            @media (min-width: @grid-float-breakpoint) {
+                margin-left: 10px;
+                padding-left: 10px;
+            }
+
+            &::after {
+                @media (min-width: @grid-float-breakpoint) {
+                    content: "";
+                    width: 2px;
+                    height: 17px;
+                    background: #939598;
+                    display: block;
+                    position: absolute;
+                    top: 4px;
+                    left: 0;
+                }
+            }
+
+            &:first-child {
+                margin-left: 0;
+                padding-left: 0;
+                &::after {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                .sub-menu {
+                    display: block;
+                }
+            }
+        }
+
+        a {
+            color: @palette-dark;
+            transition: color @ani-speed linear;
+            font-weight: 600;
+
+            &:hover {
+                color: @primary;
+            }
+        }
+
+        .active {
+            a {
+                color: @primary;
+            }
+        }
+
+        .current-menu-parent {
+            color: @primary;
+        }
+
+        .sub-menu {
+            display: none;
+            background: fade(@body-bg-color, 70%);
+            padding: 10px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            list-style: none;
+            width: auto;
+            white-space: nowrap;
+            text-align: left;
+            z-index: 1;
+        }
+    }
+}

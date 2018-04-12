@@ -1,0 +1,243 @@
+.sub-section {
+    background: @palette-dark;
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+
+    img {
+        margin-bottom: 40px;
+    }
+}
+
+.roundel {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    @media (min-width: @screen-sm-min) {
+        transform: none;
+        left: initial;
+        right: 25px;
+    }
+
+    width: 150px;
+    height: 150px;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.roundel + .content {
+    padding-top: 170px;
+    @media (min-width: @screen-sm-min) {
+        padding-top: 0;
+    }
+}
+
+.roundel + .content + .valigner {
+    padding-top: 170px;
+    @media (min-width: @screen-sm-min) {
+        padding-top: 0;
+    }
+}
+
+.introduction {
+    font-size: 2.3rem;
+    line-height: 1.5;
+    width: 100%;
+    @media (min-width: @screen-sm-min) {
+        padding-right: 20px;
+        width: 80%;
+    }
+}
+
+.small-print {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+.signature {
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.links-area {
+    ul {
+        list-style: none;
+
+        a {
+            color: @body-font-color;
+        }
+    }
+}
+
+.page-contents {
+    .page-column {
+        margin-top: 20px;
+
+        @media (min-width: @screen-sm-min) {
+            margin-top: 0;
+            padding: 0 10px;
+        }
+    }
+}
+
+.date {
+    font-weight: 600;
+    color: currentColor;
+
+    &::before {
+        content: "-";
+        display: block;
+        text-align: center;
+    }
+}
+
+.exhibition {
+    overflow: hidden;
+}
+
+.blank .introduction {
+    @media (max-width: @screen-xs-max) {
+        font-size: 1.9rem;
+    }
+}
+
+.gallery {
+    .content {
+        &:hover {
+            & + .caption {
+                display: block;
+            }
+        }
+    }
+    .image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .caption {
+        opacity: 0;
+        transition: opacity @ani-speed linear;
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        bottom: 10%;
+        left: 10%;
+        z-index: 1;
+        background: red;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.intro-title {
+    &::before {
+        content: "-";
+        display: block;
+    }
+}
+
+.grid-listing {
+    margin-top: -10px;
+
+    .grid {
+        margin-right: -5px;
+        margin-left: -5px;
+    }
+
+    .square {
+        margin: 0;
+        border-top: 10px solid @body-bg-color;
+    }
+
+    .description {
+        margin: 0;
+    }
+
+    .listing-column {
+        @media (min-width: @screen-sm-min) {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        margin-top: 10px;
+
+        .item {
+            @media (min-width: @screen-sm-min) {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between !important;
+            }
+
+            margin: 0 5px;
+        }
+    }
+
+    .listing-column:nth-child(n+4) {
+        .item {
+            background-color: #C0d9ea;
+        }
+    }
+}
+
+.page-id-319 {
+    .listing-column:nth-child(n+4) {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 2px solid black;
+    }
+
+    .listing-column:nth-child(n+7) {
+        padding-top: 0;
+        border-top: none;
+    }
+}
+
+.description {
+    margin-bottom: @bar-height;
+    padding: @bar-height * 2;
+}
+
+.description-title {
+    position: relative;
+    margin-bottom: @bar-height + 5px;
+    padding-left: @bar-height;
+    line-height: 1.3;
+
+    &::before {
+        content: "";
+        background: black;
+        width: 1px;
+        position: absolute;
+        top: 6px;
+        left: 0;
+        bottom: 4px;
+        display: block;
+    }
+
+    h3 {
+        text-transform: none;
+        margin: 0 0 10px 0;
+        padding: 0;
+        font-weight: 300;
+    }
+}
+
+.item h4 {
+    margin-bottom: 0;
+}
+
+.postid-49 .longer {
+    .square::after {
+        padding-bottom: 130%;
+    }
+}

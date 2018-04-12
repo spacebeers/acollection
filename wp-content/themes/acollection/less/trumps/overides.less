@@ -1,0 +1,35 @@
+.btn {
+    font-size: 2.1rem;
+}
+
+.btn-reverse {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+
+    &:hover {
+        background: white;
+        color: @primary !important;
+    }
+
+    &.btn-primary {
+        border-color: @primary;
+        color: @primary;
+
+        &:hover {
+            background: @primary;
+            color: white !important;
+        }
+    }
+}
+
+.collapse.mobile-collapse {
+    @media (min-width: @grid-float-breakpoint) {
+        display: block !important;
+        height: auto !important;
+    }
+}
+
+#catapult-cookie-bar {
+    font-family: @primary-font !important;
+}
