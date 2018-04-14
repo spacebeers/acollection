@@ -2,18 +2,14 @@
 
         <footer class="site-footer">
             <div class="grid">
-                <div class="col">
-                    <div class="listing-item">
+                <div class="row">
+                    <div class="col col--sm-4">
                         <?php dynamic_sidebar('footer-one-sidebar'); ?>
                     </div>
-                </div>
-                <div class="listing">
-                    <div class="listing-item">
+                    <div class="col col--sm-4">
                         <?php dynamic_sidebar('footer-two-sidebar'); ?>
                     </div>
-                </div>
-                <div class="listing">
-                    <div class="listing-item">
+                    <div class="col col--sm-4">
                         <?php dynamic_sidebar('footer-three-sidebar'); ?>
                     </div>
                 </div>

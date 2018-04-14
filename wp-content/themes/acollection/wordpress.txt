@@ -1,6 +1,0 @@
-wp core download
-
-wp core config --dbname=farleyshouse --dbuser=root --dbpass=password --dbhost=localhost
-
-wp core install --url='http://localhost/farleyshousegallery.co.uk' --title='Farleys House and Gallery' --admin_user=admin --admin_password=doughnuts --admin_email='andyhowell@outlook.co.uk'
-

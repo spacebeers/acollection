@@ -1,8 +1,3 @@
-<?php
-    $header_text = get_theme_mod('farleyshouse_header_text');
-?>
-
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
@@ -15,28 +10,58 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div class="container">
+    <div class="grid--container">
         <header class="site-header" id="header">
-            <div class="section header-menu">
-                <?php
-                    wp_nav_menu( array(
-                        'menu'              => 'main_menu',
-                        'theme_location'    => 'main_menu',
-                        'depth'             => 2,
-                        'container'         => 'nav',
-                        'container_class'   => 'main-menu',
-                        'container_id'      => 'main-navigation',
-                        'menu_class'        => 'nav')
-                    );
-                ?>
+            <div class="header-top">
+                <div class="grid">
+                    <div class="row">
+                        <div class="col col--sm-3 text--xs-left">
+                            <?php dynamic_sidebar('header-one-sidebar'); ?>
+                        </div>
+                        <div class="col col--sm-6 text--xs-center">
+                            <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
+                                <img src='<?php echo esc_url( get_theme_mod( 'acollection_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
+                            </a>
+                        </div>
+                        <div class="col col--sm-3 text--xs-right">
+                            <?php dynamic_sidebar('header-three-sidebar'); ?>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="section header-brand">
-                <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
-                    <img src='<?php echo esc_url( get_theme_mod( 'farleyshouse_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
-                </a>
-            </div>
-            <div class="section header-info">
-                <?php echo $header_text; ?>
+            <div class="header-bottom">
+                <div class="grid">
+                    <div class="row">
+                        <div class="col col--sm-6">
+                            <div class="menu main-menu">
+                                <?php
+                                    wp_nav_menu( array(
+                                        'menu'              => 'main_menu',
+                                        'theme_location'    => 'main_menu',
+                                        'depth'             => 2,
+                                        'container'         => 'nav',
+                                        'container_class'   => 'main-menu',
+                                        'menu_class'        => 'nav')
+                                    );
+                                ?>
+                            </div>
+                        </div>
+                        <div class="col col--sm-6">
+                            <div class="menu secondary-menu">
+                                <?php
+                                    wp_nav_menu( array(
+                                        'menu'              => 'secondary',
+                                        'theme_location'    => 'secondary',
+                                        'depth'             => 2,
+                                        'container'         => 'nav',
+                                        'container_class'   => 'main-menu',
+                                        'menu_class'        => 'nav')
+                                    );
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 

@@ -20,9 +20,9 @@
 
     // External CSS
     function acollection_theme_name_styles() {
-        wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Assistant:400,700', false );
+        wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,600', false );
+        wp_enqueue_style( 'wpb-slick-base', get_template_directory_uri() . '/vendor/slick/slick.css', false );
         wp_enqueue_style( 'wpb-slick-theme', get_template_directory_uri() . '/vendor/slick/slick-theme.css', false );
-        wp_enqueue_style( 'wpb-grid', get_template_directory_uri() . '/vendor/flexboxgrid/dist/flexboxgrid.min.css', false );
     }
 
     add_action( 'wp_enqueue_scripts', 'acollection_theme_name_styles' );
@@ -31,7 +31,6 @@
     // Vendor scripts
 
     function acollection_vendor_scripts() {
-        wp_enqueue_script( 'acollection-bootstrap', get_template_directory_uri() . '/vendor/bootstrap/dist/js/bootstrap.min.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'acollection-slick', get_template_directory_uri() . '/vendor/slick/slick.min.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'acollection-theme', get_template_directory_uri() . '/scripts/theme.js', array ( 'jquery' ), 1.1, true);
     }
@@ -49,7 +48,8 @@
                 'public' => true,
                 'rewrite' => array('slug' => 'product'),
                 'supports' => array('title', 'excerpt', 'thumbnail'),
-                'show_in_nav_menus'   => true
+                'show_in_nav_menus'   => true,
+                'taxonomies'  => array( 'category' )
             )
         );
     }
@@ -58,6 +58,37 @@
     flush_rewrite_rules();
 
     add_action( 'init', 'create_posttype' );
+
+    add_action( 'init', 'create_tag_taxonomies', 0 );
+
+    function create_tag_taxonomies() {
+    $labels = array(
+        'name' => _x( 'Collections', 'taxonomy general name' ),
+        'singular_name' => _x( 'Collection', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Collections' ),
+        'popular_items' => __( 'Popular Collections' ),
+        'all_items' => __( 'All Collections' ),
+        'parent_item' => null,
+        'parent_item_colon' => null,
+        'edit_item' => __( 'Edit Collection' ),
+        'update_item' => __( 'Update Collection' ),
+        'add_new_item' => __( 'Add New Collection' ),
+        'new_item_name' => __( 'New Collection Name' ),
+        'separate_items_with_commas' => __( 'Separate Collections with commas' ),
+        'add_or_remove_items' => __( 'Add or remove Collections' ),
+        'choose_from_most_used' => __( 'Choose from the most used Collections' ),
+        'menu_name' => __( 'Collections' ),
+    );
+
+    register_taxonomy('collection','product', array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'show_ui' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'collection' ),
+    ));
+    }
 
 
     // Custom post types ends
