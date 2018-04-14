@@ -1,35 +1,16 @@
-.btn {
-    font-size: 2.1rem;
-}
+.square {
+    position: relative;
+    width: 100%;
 
-.btn-reverse {
-    background: transparent;
-    border: 2px solid white;
-    color: white;
-
-    &:hover {
-        background: white;
-        color: @primary !important;
+    &::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
     }
 
-    &.btn-primary {
-        border-color: @primary;
-        color: @primary;
-
-        &:hover {
-            background: @primary;
-            color: white !important;
-        }
+    .content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
     }
-}
-
-.collapse.mobile-collapse {
-    @media (min-width: @screen-sm) {
-        display: block !important;
-        height: auto !important;
-    }
-}
-
-#catapult-cookie-bar {
-    font-family: @primary-font !important;
 }

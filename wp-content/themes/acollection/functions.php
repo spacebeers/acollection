@@ -46,6 +46,7 @@
                     'singular_name' => __( 'Prodcut' )
                 ),
                 'public' => true,
+                'has_archive' => true,
                 'rewrite' => array('slug' => 'product'),
                 'supports' => array('title', 'excerpt', 'thumbnail'),
                 'show_in_nav_menus'   => true,
@@ -249,9 +250,9 @@
         remove_menu_page('edit-comments.php');
     }
 
-
+// Only flush the file cache with each request to post list table, edit post screen, or theme editor.
 function wp_42573_fix_template_caching( WP_Screen $current_screen ) {
-	// Only flush the file cache with each request to post list table, edit post screen, or theme editor.
+
 	if ( ! in_array( $current_screen->base, array( 'post', 'edit', 'theme-editor' ), true ) ) {
 		return;
 	}
@@ -265,4 +266,15 @@ function wp_42573_fix_template_caching( WP_Screen $current_screen ) {
 	delete_transient( $transient_key );
 }
 add_action( 'current_screen', 'wp_42573_fix_template_caching' );
+
+// Register custom post types with the flipping loop
+function acollection_add_custom_types( $query ) {
+  if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'post_type', array(
+     'post', 'nav_menu_item', 'product'
+		));
+	  return $query;
+	}
+}
+add_filter( 'pre_get_posts', 'acollection_add_custom_types' );
 ?>

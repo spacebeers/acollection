@@ -14,12 +14,12 @@
         <header class="site-header" id="header">
             <div class="header-top">
                 <div class="grid">
-                    <div class="row">
+                    <div class="row row--no-gutters">
                         <div class="col col--sm-3 text--xs-left">
                             <?php dynamic_sidebar('header-one-sidebar'); ?>
                         </div>
                         <div class="col col--sm-6 text--xs-center">
-                            <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
+                            <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home' class="site-logo">
                                 <img src='<?php echo esc_url( get_theme_mod( 'acollection_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
                             </a>
                         </div>
@@ -31,7 +31,7 @@
             </div>
             <div class="header-bottom">
                 <div class="grid">
-                    <div class="row">
+                    <div class="row row--no-gutters">
                         <div class="col col--sm-6">
                             <div class="menu main-menu">
                                 <?php
