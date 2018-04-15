@@ -13,7 +13,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class("product-page"); ?>>
-<div class="grid">
+<div class="grid grid--no-gutters">
     <div class="row space-between">
         <div class="col col--md-3">
             <div class="product-section">

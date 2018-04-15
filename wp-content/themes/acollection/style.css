@@ -1194,10 +1194,29 @@ ol {
   margin: 0;
   padding: 0;
 }
+.menu li {
+  display: inline-block;
+}
+.menu li::after {
+  content: "|";
+  margin: 0 5px;
+}
+.menu li:last-child::after {
+  display: none;
+}
 .menu li a {
   text-transform: uppercase;
   font-weight: 100;
   font-size: 1.4rem;
+}
+.menu li a:hover {
+  text-decoration: none;
+}
+.menu li.active a {
+  color: #224D99;
+}
+#basket {
+  float: right;
 }
 .category-listing a {
   display: block;

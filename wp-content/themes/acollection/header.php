@@ -13,7 +13,7 @@
     <div class="grid--container">
         <header class="site-header" id="header">
             <div class="header-top">
-                <div class="grid">
+                <div class="grid grid--no-gutters">
                     <div class="row row--no-gutters">
                         <div class="col--no-gutters col col--sm-3 text--xs-left">
                             <?php dynamic_sidebar('header-one-sidebar'); ?>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="header-bottom">
-                <div class="grid">
+                <div class="grid grid--no-gutters">
                     <div class="row row--no-gutters">
                         <div class="col--no-gutters col col--sm-6">
                             <div class="menu main-menu">

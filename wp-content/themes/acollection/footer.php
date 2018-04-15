@@ -1,7 +1,7 @@
         </section>
 
         <footer class="site-footer">
-            <div class="grid">
+            <div class="grid grid--no-gutters">
                 <div class="row space-between">
                     <div class="col col--sm-3 text--xs-center text--sm-left">
                         <?php dynamic_sidebar('footer-one-sidebar'); ?>

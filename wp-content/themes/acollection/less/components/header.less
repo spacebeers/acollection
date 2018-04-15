@@ -29,8 +29,33 @@
     }
 
     li {
+        display: inline-block;
+
+        &::after {
+            content: "|";
+            margin: 0 5px;
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+
         a {
             .brand-text();
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &.active {
+            a {
+                color: @primary;
+            }
         }
     }
+}
+
+#basket {
+    float: right;
 }
