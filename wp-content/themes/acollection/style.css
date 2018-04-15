@@ -1149,7 +1149,7 @@ strong + strong::before {
   display: block;
 }
 a {
-  color: #1A1919;
+  color: #424F41;
   font-weight: 600;
   text-decoration: none;
   -webkit-transition: color 0.2s linear;
@@ -1159,7 +1159,7 @@ a {
 a:hover {
   text-decoration: underline;
   opacity: 1;
-  color: #1A1919;
+  color: #224D99;
 }
 ul {
   margin: 0 0 20px 0;

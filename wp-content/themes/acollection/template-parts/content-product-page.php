@@ -16,8 +16,9 @@
 <div class="grid">
     <div class="row space-between">
         <div class="col col--md-3">
-            <?php the_breadcrumb(); ?>
-
+            <div class="product-section">
+                <?php the_breadcrumb(); ?>
+            </div>
             <div class="product-section">
                 <?php the_content();?>
             </div>
@@ -52,7 +53,9 @@
             </div>
         </div>
         <div class="col col--md-3">
-            <h1 class="title-text"><?php the_title(); ?></h1>
+            <div class="product-section">
+                <h1 class="title-text"><?php the_title(); ?></h1>
+            </div>
 
             <?php include(locate_template('template-parts/content-product-form.php')); ?>
             <div class="product-section closing-section">
