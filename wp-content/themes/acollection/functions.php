@@ -4,7 +4,8 @@
     // Menus
 	register_nav_menus( array(
 		'main_menu' => 'Main menu',
-		'secondary_menu' => 'Secondary menu'
+		'secondary_menu' => 'Secondary menu',
+		'footer_menu' => 'Footer menu'
 	) );
 
     add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
@@ -21,8 +22,6 @@
     // External CSS
     function acollection_theme_name_styles() {
         wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,600', false );
-        wp_enqueue_style( 'wpb-slick-base', get_template_directory_uri() . '/vendor/slick/slick.css', false );
-        wp_enqueue_style( 'wpb-slick-theme', get_template_directory_uri() . '/vendor/slick/slick-theme.css', false );
     }
 
     add_action( 'wp_enqueue_scripts', 'acollection_theme_name_styles' );
@@ -31,7 +30,6 @@
     // Vendor scripts
 
     function acollection_vendor_scripts() {
-        wp_enqueue_script( 'acollection-slick', get_template_directory_uri() . '/vendor/slick/slick.min.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'acollection-theme', get_template_directory_uri() . '/scripts/theme.js', array ( 'jquery' ), 1.1, true);
     }
     add_action( 'wp_enqueue_scripts', 'acollection_vendor_scripts' );
@@ -48,7 +46,7 @@
                 'public' => true,
                 'has_archive' => true,
                 'rewrite' => array('slug' => 'product'),
-                'supports' => array('title', 'excerpt', 'thumbnail'),
+                'supports' => array('title', 'thumbnail', 'editor'),
                 'show_in_nav_menus'   => true,
                 'taxonomies'  => array( 'category' )
             )
@@ -277,4 +275,19 @@ function acollection_add_custom_types( $query ) {
 	}
 }
 add_filter( 'pre_get_posts', 'acollection_add_custom_types' );
+
+// Breadcrumbs
+function the_breadcrumb() {
+    if (!is_home()) {
+        if (is_category() || is_single()) {
+            the_category('title_li=');
+            if (is_single()) {
+                echo " | ";
+                the_title();
+            }
+        } elseif (is_page()) {
+            echo the_title();
+        }
+    }
+}
 ?>

@@ -15,15 +15,15 @@
             <div class="header-top">
                 <div class="grid">
                     <div class="row row--no-gutters">
-                        <div class="col col--sm-3 text--xs-left">
+                        <div class="col--no-gutters col col--sm-3 text--xs-left">
                             <?php dynamic_sidebar('header-one-sidebar'); ?>
                         </div>
-                        <div class="col col--sm-6 text--xs-center">
+                        <div class="col--no-gutters col col--sm-6 text--xs-center">
                             <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home' class="site-logo">
                                 <img src='<?php echo esc_url( get_theme_mod( 'acollection_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
                             </a>
                         </div>
-                        <div class="col col--sm-3 text--xs-right">
+                        <div class="col--no-gutters col col--sm-3 text--xs-right">
                             <?php dynamic_sidebar('header-three-sidebar'); ?>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
             <div class="header-bottom">
                 <div class="grid">
                     <div class="row row--no-gutters">
-                        <div class="col col--sm-6">
+                        <div class="col--no-gutters col col--sm-6">
                             <div class="menu main-menu">
                                 <?php
                                     wp_nav_menu( array(
@@ -46,7 +46,7 @@
                                 ?>
                             </div>
                         </div>
-                        <div class="col col--sm-6">
+                        <div class="col--no-gutters col col--sm-6">
                             <div class="menu secondary-menu">
                                 <?php
                                     wp_nav_menu( array(
@@ -59,6 +59,7 @@
                                     );
                                 ?>
                             </div>
+                            <div id="basket"></div>
                         </div>
                     </div>
                 </div>

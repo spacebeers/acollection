@@ -17,10 +17,7 @@
 // Type
 @primary-font: 'Nunito Sans', sans-serif;;
 @body-font: @primary-font;
-
-@weight-strong: 600;
-@weight-medium: 400;
-@weight-light: 300;
+@body-font-size: 1.4rem;
 
 // Structure
 @content-gap: 20px;
@@ -28,3 +25,10 @@
 
 // Delighters
 @ani-speed: 0.2s;
+
+// Mixins
+.brand-text(@font-size: 1.4rem) {
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: @font-size;
+}

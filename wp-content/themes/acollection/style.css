@@ -1112,7 +1112,7 @@ body {
   background-color: #FFFFFE;
   font-family: 'Nunito Sans', sans-serif;
   color: #424F41;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 300;
   line-height: 2.6rem;
   overflow-x: hidden;
@@ -1189,6 +1189,16 @@ ol {
   height: auto;
   display: block;
 }
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu li a {
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: 1.4rem;
+}
 .category-listing a {
   display: block;
 }
@@ -1196,8 +1206,47 @@ ol {
   width: 100%;
   height: auto;
 }
-.site-footer {
-  border-top: 1px solid grey;
+.listing-item {
+  border-bottom: 1px solid #DCDDDB;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.category-description {
+  margin-top: 20px;
+}
+.product-section {
+  border-top: 1px solid #DCDDDB;
+  padding: 20px 0;
+}
+.product-section.closing-section {
+  border-bottom: 1px solid #DCDDDB;
+}
+.gallery-main {
+  margin: 40px;
+}
+.gallery-main img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.gallery-controls ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.gallery-controls ul li {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 32%;
+      -ms-flex: 0 0 32%;
+          flex: 0 0 32%;
+  border: 1px solid #DCDDDB;
 }
 .site-footer {
   border-top: 1px solid #DCDDDB;
@@ -1208,6 +1257,8 @@ ol {
 }
 .social-list {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .social-list li {
   display: inline-block;
@@ -1229,4 +1280,16 @@ ol {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+.square img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.space-between {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }

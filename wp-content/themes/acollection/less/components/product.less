@@ -1,3 +1,32 @@
-.site-footer {
-    border-top: 1px solid grey;
+.product-section {
+    border-top: 1px solid @border-color;
+    padding: @content-gap 0;
+
+    &.closing-section {
+        border-bottom: 1px solid @border-color;
+    }
+}
+
+
+.gallery-main {
+    margin: 40px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.gallery-controls {
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            flex: 0 0 32%;
+            border: 1px solid @border-color;
+        }
+    }
 }

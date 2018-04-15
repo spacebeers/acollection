@@ -10,7 +10,7 @@
 		<?php
 		while ( have_posts() ) :
 			the_post(); ?>
-			<div class="col col--sm-6 col--md-3">
+			<div class="col col--sm-6 col--md-3 listing-item">
 				<?php get_template_part( 'template-parts/content', 'product-listing' ); ?>
 			</div>
 		<?php
@@ -28,9 +28,9 @@
 			// Show an optional term description.
 			$term_description = term_description();
 			if ( ! empty( $term_description ) ) : ?>
-			<div class="grid">
+			<div class="grid category-description">
 				<div class="row">
-					<div class="col col--sm-8 col--md-6 col--sm-offset-2 col--md-offset-3 text--xs-center">
+					<div class="col col--sm-6 col--md-4 col--sm-offset-3 col--md-offset-4 text--xs-center">
 						<h2><?php single_term_title(); ?></h2>
 						<?php printf( '<div class="taxonomy-description">%s</div>', $term_description ); ?>
 					</div>
