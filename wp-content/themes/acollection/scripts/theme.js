@@ -53,4 +53,10 @@ jQuery(document).ready(function() {
         localStorage.setItem(key,  JSON.stringify(nice));
         ACollection.updateBasket();
     });
+
+    jQuery("#nav-toogle").click(function () {
+        jQuery("#mobile-menu").fadeToggle(200);
+        jQuery(this).toggleClass('btn-close');
+        jQuery('body').toggleClass('menu-open');
+    });
 });

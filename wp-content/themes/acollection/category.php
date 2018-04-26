@@ -23,22 +23,6 @@
 				get_template_part( 'content', 'none' );
 			endif;
 		?>
-
-		<?php
-			// Show an optional term description.
-			$term_description = term_description();
-			if ( ! empty( $term_description ) ) : ?>
-			<div class="grid category-description">
-				<div class="row">
-					<div class="col col--sm-6 col--md-4 col--sm-offset-3 col--md-offset-4 text--xs-center">
-						<h2><?php single_term_title(); ?></h2>
-						<?php printf( '<div class="taxonomy-description">%s</div>', $term_description ); ?>
-					</div>
-				</div>
-			</div>
-		<?php
-			endif;
-		?>
 	</section>
 
 <?php get_footer(); ?>

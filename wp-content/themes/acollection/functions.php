@@ -1,5 +1,6 @@
 <?php
     include('classes/social_widget.php');
+    include('classes/cart.php');
 
     // Menus
 	register_nav_menus( array(
@@ -161,6 +162,21 @@
             'description' => __( 'Select a page to use as the contact page.' ),
         ) );
 
+        $wp_customize->add_section( 'acollection_basket_section' , array(
+			'title'       => __( 'Basket', 'acollection' ),
+			'priority'    => 30,
+			'description' => 'Set any basket config here',
+        ));
+
+        $wp_customize->add_setting( 'acollection_basket_text' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_basket_text', array(
+		    'label'    => __( 'Basket text', 'acollection' ),
+		    'section'  => 'acollection_basket_section',
+		    'settings' => 'acollection_basket_text',
+            'type'			 => 'textarea',
+            'sanitize_callback' => 'test_sanitize_text',
+		)));
+
         function acollection_sanitize_dropdown_pages( $page_id, $setting ) {
             // Ensure $input is an absolute integer.
             $page_id = absint( $page_id );
@@ -185,22 +201,6 @@
     // Sidebars
 
     function acollection_widgets_init() {
-        register_sidebar( array(
-            'name' => __( 'Header column one', 'acollection' ),
-            'id' => 'header-one-sidebar',
-            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-            'after_widget' => "</aside>",
-            'before_title' => '<div class="widget-title">',
-            'after_title' => '</div>',
-        ));
-        register_sidebar( array(
-            'name' => __( 'Header column two', 'acollection' ),
-            'id' => 'header-two-sidebar',
-            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-            'after_widget' => "</aside>",
-            'before_title' => '<div class="widget-title">',
-            'after_title' => '</div>',
-        ));
         register_sidebar( array(
             'name' => __( 'Footer column one', 'acollection' ),
             'id' => 'footer-one-sidebar',

@@ -12,6 +12,21 @@ body {
     overflow-x: hidden;
 }
 
+body > div:first-child {
+    background: lightyellow;
+    border: 2px solid blue;
+    @media (min-width: @screen-md) {
+        position: relative;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+}
+
 .content {
     overflow: hidden;
+}
+
+.constrain {
+    width: 85%;
+    margin: 0 auto;
 }

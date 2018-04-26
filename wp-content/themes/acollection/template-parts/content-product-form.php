@@ -6,5 +6,5 @@
         <?php endfor; ?>
     </select>
     <input type="hidden" name="productID" id="productID" value="<?php the_ID(); ?>" />
-    <button type="submit">Add to your collection</button>
+    <button type="submit" class="btn-primary">Add to your collection</button>
 </form>

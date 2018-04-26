@@ -29,21 +29,21 @@
                     <?php if (get_theme_mod( 'acollection_facebook')): ?>
                         <li class="facebook">
                             <a href="<?php echo get_theme_mod( 'acollection_facebook'); ?>" target="_blank">
-                                <img src="<?php bloginfo('template_directory'); ?>/assets/facebook.png" />
+                                <img src="<?php bloginfo('template_directory'); ?>/assets/facebook.png" alt="facebook logo" />
                             </a>
                         </li>
                     <?php endif; ?>
                     <?php if (get_theme_mod( 'acollection_twitter')): ?>
                         <li class="twitter">
                             <a href="<?php echo get_theme_mod( 'acollection_twitter'); ?>" target="_blank">
-                                <img src="<?php bloginfo('template_directory'); ?>/assets/twitter.png" />
+                                <img src="<?php bloginfo('template_directory'); ?>/assets/twitter.png" alt="Twitter logo" />
                             </a>
                         </li>
                     <?php endif; ?>
                     <?php if (get_theme_mod( 'acollection_instagram')): ?>
                         <li class="instagram">
                             <a href="<?php echo get_theme_mod( 'acollection_instagram'); ?>" target="_blank">
-                                <img src="<?php bloginfo('template_directory'); ?>/assets/instagram.png" />
+                                <img src="<?php bloginfo('template_directory'); ?>/assets/instagram.png" alt="Instagram logo" />
                             </a>
                         </li>
                     <?php endif; ?>
