@@ -1414,6 +1414,28 @@ button,
 .category-description {
   margin-top: 20px;
 }
+.basket-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.basket-item img {
+  width: 120px;
+}
+.basket-item img {
+  width: 120px;
+  height: auto;
+}
 .product-column {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;

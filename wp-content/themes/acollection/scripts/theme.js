@@ -3,9 +3,9 @@ jQuery(document).ready(function () {
     var $gallerymain = jQuery("#galleryMain");
     var $basket = jQuery("#basket");
     var key = "A_COLLECTION_BASKET";
-    var start = {
+    var start = [{
         "0": 0
-    }
+    }]
 
     var ACollection = {
         key: key,
@@ -23,7 +23,18 @@ jQuery(document).ready(function () {
             var resp = JSON.parse(store);
             return resp.reduce(function (acc, val) {
                 return parseInt(acc.quantity) + parseInt(val.quantity);
-            }) || 0;
+            }, []) || 0;
+        },
+
+        deleteItem: function (id) {
+            var store = Cookies.get(ACollection.key) || JSON.stringify(start);
+            var resp = JSON.parse(store);
+            var response = [];
+            response = resp.filter(function (item) {
+                return item.id != id;
+            });
+            var formatted = JSON.stringify(response);
+            Cookies.set(ACollection.key, formatted, { expires: 3 });
         }
     };
 
@@ -52,7 +63,7 @@ jQuery(document).ready(function () {
             quantity: quantity
         }
 
-        var result = Cookies.get(ACollection.key) || "[]";
+        var result = Cookies.get(ACollection.key) || "[{}]";
         var basket = JSON.parse(result);
         var response = [];
         response = basket.filter(function(item) {
@@ -64,9 +75,19 @@ jQuery(document).ready(function () {
         ACollection.updateBasket();
     });
 
+    jQuery('.jsDelete').on('click', function(e) {
+        e.preventDefault();
+        var $this = jQuery(this);
+        ACollection.deleteItem($this.attr('data-id'));
+        $this.closest('.basket-item').remove();
+        console.log($this.attr('data-id'));
+    })
+
     jQuery("#nav-toogle").click(function () {
         jQuery("#mobile-menu").fadeToggle(200);
         jQuery(this).toggleClass('btn-close');
         jQuery('body').toggleClass('menu-open');
     });
+
+
 });

@@ -21,10 +21,12 @@
 
                             <div class="basket-item">
                                 <div class="image">
-                                    <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="">
+                                    <a href="<?php the_permalink($item->id); ?>">
+                                        <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="">
+                                    </a>
                                 </div>
                                 <div class="content">
-                                    <h3><?php echo $the_post->post_title; ?></h3>
+                                    <h3><a href="<?php the_permalink($item->id); ?>"><?php echo $the_post->post_title; ?></a></h3>
                                     <p><?php echo get_field( "product_number", $item->id ); ?></p>
                                 </div>
                                 <div class="meta">
@@ -34,7 +36,7 @@
                                             <option value="<?php echo $i; ?>" <?php if ($i == $item->quantity): echo "selected"; endif; ?>><?php echo $i; ?></option>
                                         <?php endfor; ?>
                                     </select>
-                                    <button>x</button>
+                                    <button class="jsDelete" data-id="<?php echo $item->id; ?>">x</button>
                                 </div>
                             </div>
                     <?php
