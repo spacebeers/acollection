@@ -1,4 +1,4 @@
-button {
+button, .btn {
     background: none;
     border: none;
     margin: 0;
@@ -10,7 +10,6 @@ button {
 .btn-primary {
     padding: 15px;
     text-align: center;
-    width: 100%;
     background: @primary;
     color: @palette-lightest;
     text-transform: uppercase;
@@ -19,9 +18,47 @@ button {
 .btn-ghost {
     padding: 15px;
     text-align: center;
-    width: 100%;
     background: @body-bg-color;
     color: @primary;
     border: 4px solid @primary;
     text-transform: uppercase;
+}
+
+.btn--xs-block {
+    @media (max-width: @screen-xs-max) {
+        display: block;
+    }
+}
+
+.btn--sm-block {
+    @media (max-width: @screen-sm-max) {
+        display: block;
+    }
+}
+
+.btn--md-block {
+    @media (max-width: @screen-md-max) {
+        display: block;
+    }
+}
+
+.btn--lg-block {
+    @media (max-width: @screen-lg-max) {
+        display: block;
+    }
+}
+
+.input {
+    text-align: left;
+
+    label {
+        display: block;
+        text-transform: uppercase;
+    }
+
+    input {
+        border: 1px solid black;
+        padding: 9px;
+        width: 100%;
+    }
 }

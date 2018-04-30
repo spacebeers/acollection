@@ -15,7 +15,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class("product-page"); ?>>
     <div class="grid grid--no-gutters">
         <div class="row space-between">
-            <div class="col col--md-3">
+            <div class="col col--md-3 product-column">
                 <div class="product-section">
                     <?php the_breadcrumb(); ?>
                 </div>
@@ -55,16 +55,18 @@
             <div class="col col--md-3">
                 <div class="product-section">
                     <h1 class="title-text"><?php the_title(); ?></h1>
+                    <small><?php the_field('product_number'); ?></small>
                 </div>
 
-                <?php include(locate_template('template-parts/content-product-form.php')); ?>
                 <div class="product-section closing-section">
-                    <p>
-                        DIMENSIONS: <?php echo $product_dimensions; ?>
-                    </p>
                     <p>
                         Total stock: <?php the_field('stock'); ?>
                     </p>
+                    <p>
+                        DIMENSIONS: <?php echo $product_dimensions; ?>
+                    </p>
+
+                    <?php include(locate_template('template-parts/content-product-form.php')); ?>
                 </div>
             </div>
         </div>

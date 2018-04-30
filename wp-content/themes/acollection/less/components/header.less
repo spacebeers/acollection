@@ -38,7 +38,6 @@
         bottom: 0;
         left: 0;
         background: white;
-        z-index: -99;
         padding: 80px 8% 20px 8%;
     }
 }
@@ -65,6 +64,10 @@
 
         li {
             display: inline-block;
+
+            &::after {
+                display: none;
+            }
         }
     }
 
@@ -72,6 +75,10 @@
         left: 0;
         transform-origin: left top;
         transform: rotate(270deg) translateX(-100%);
+
+        li {
+            margin-left: 30px;
+        }
     }
 
     &.side-nav-right {
@@ -79,6 +86,12 @@
         top: 100px;
         transform-origin: left bottom;
         transform: rotate(90deg) translateY(-100%);
+
+        li {
+            margin-right: 30px;
+        }
+
+
     }
 }
 

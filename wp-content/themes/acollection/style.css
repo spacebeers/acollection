@@ -1194,7 +1194,8 @@ ol {
 .text-uppercase {
   text-transform: uppercase;
 }
-button {
+button,
+.btn {
   background: none;
   border: none;
   margin: 0;
@@ -1205,7 +1206,6 @@ button {
 .btn-primary {
   padding: 15px;
   text-align: center;
-  width: 100%;
   background: #1A1919;
   color: #DCDDDB;
   text-transform: uppercase;
@@ -1213,11 +1213,42 @@ button {
 .btn-ghost {
   padding: 15px;
   text-align: center;
-  width: 100%;
   background: #FFFFFE;
   color: #1A1919;
   border: 4px solid #1A1919;
   text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .btn--xs-block {
+    display: block;
+  }
+}
+@media (max-width: 1023px) {
+  .btn--sm-block {
+    display: block;
+  }
+}
+@media (max-width: 1278px) {
+  .btn--md-block {
+    display: block;
+  }
+}
+@media (max-width: 1365px) {
+  .btn--lg-block {
+    display: block;
+  }
+}
+.input {
+  text-align: left;
+}
+.input label {
+  display: block;
+  text-transform: uppercase;
+}
+.input input {
+  border: 1px solid black;
+  padding: 9px;
+  width: 100%;
 }
 .site-header {
   margin-bottom: 20px;
@@ -1263,7 +1294,6 @@ button {
     bottom: 0;
     left: 0;
     background: white;
-    z-index: -99;
     padding: 80px 8% 20px 8%;
   }
 }
@@ -1292,6 +1322,9 @@ button {
 .side-nav ul li {
   display: inline-block;
 }
+.side-nav ul li::after {
+  display: none;
+}
 .side-nav.side-nav-left {
   left: 0;
   -webkit-transform-origin: left top;
@@ -1300,6 +1333,9 @@ button {
   -webkit-transform: rotate(270deg) translateX(-100%);
       -ms-transform: rotate(270deg) translateX(-100%);
           transform: rotate(270deg) translateX(-100%);
+}
+.side-nav.side-nav-left li {
+  margin-left: 30px;
 }
 .side-nav.side-nav-right {
   right: 0;
@@ -1310,6 +1346,9 @@ button {
   -webkit-transform: rotate(90deg) translateY(-100%);
       -ms-transform: rotate(90deg) translateY(-100%);
           transform: rotate(90deg) translateY(-100%);
+}
+.side-nav.side-nav-right li {
+  margin-right: 30px;
 }
 .site-logo {
   display: block;
@@ -1375,15 +1414,23 @@ button {
 .category-description {
   margin-top: 20px;
 }
-.product-section {
-  border-top: 1px solid #DCDDDB;
-  padding: 20px 0;
-}
-.product-section.closing-section {
-  border-bottom: 1px solid #DCDDDB;
+.product-column {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .gallery-main {
-  margin: 40px;
+  margin: 0 40px;
 }
 .gallery-main img {
   width: 100%;

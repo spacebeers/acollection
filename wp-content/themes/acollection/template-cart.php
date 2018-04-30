@@ -19,22 +19,22 @@
                 <div class="constrain">
                     <div class="row space-between">
                         <div class="col col--md-6">
-                            <div class="form-group">
+                            <div class="input">
                                 <label for="first_name">First name</label>
                                 <input type="text" name="first_name" id="first_name" />
                             </div>
 
-                            <div class="form-group">
+                            <div class="input">
                                 <label for="last_name">Last name</label>
                                 <input type="text" name="last_name" id="last_name" />
                             </div>
 
-                            <div class="form-group">
+                            <div class="input">
                                 <label for="email_address">Email address</label>
                                 <input type="text" name="email_address" id="email_address" />
                             </div>
 
-                            <div class="form-group">
+                            <div class="input">
                                 <label for="telephone">Telephone</label>
                                 <input type="text" name="telephone" id="telephone" />
                             </div>
@@ -42,9 +42,13 @@
                         <div class="col col--md-6">
 
                         </div>
+
+                        <div class="col col--xs-12 text--xs-center">
+                            <input type="submit" class="btn-primary" value="Submit Enquiry" />
+                        </div>
                     </div>
 
-                    <p>
+                    <p class="text--xs-center text--sm-left">
                         <?php echo $backet_text; ?>
                     </p>
                 </div>

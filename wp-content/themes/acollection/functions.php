@@ -31,6 +31,7 @@
     // Vendor scripts
 
     function acollection_vendor_scripts() {
+        wp_enqueue_script( 'acollection-cookie', get_template_directory_uri() . '/vendor/js-cookie/src/js.cookie.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'acollection-theme', get_template_directory_uri() . '/scripts/theme.js', array ( 'jquery' ), 1.1, true);
     }
     add_action( 'wp_enqueue_scripts', 'acollection_vendor_scripts' );

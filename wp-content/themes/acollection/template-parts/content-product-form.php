@@ -11,5 +11,5 @@
         <?php endfor; ?>
     </select>
     <input type="text" name="id" id="productID" value="<?php the_ID(); ?>" />
-    <button type="submit" class="btn-primary">Add to your collection</button>
+    <button type="submit" class="btn-primary btn--xs-block">Add to your collection</button>
 </form>

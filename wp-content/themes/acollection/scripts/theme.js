@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
     var $window = jQuery(window);
     var $gallerymain = jQuery("#galleryMain");
     var $basket = jQuery("#basket");
@@ -14,22 +14,22 @@ jQuery(document).ready(function() {
             ACollection.updateBasket();
         },
 
-        updateBasket: function() {
-            $basket.html(ACollection.getBasket());
+        updateBasket: function () {
+            $basket.find('.badge').html(ACollection.getBasket());
         },
 
-        getBasket: function() {
-            var store = sessionStorage.getItem(ACollection.key) || JSON.stringify(start);
-            var obj = JSON.parse(store);
-            return Object.values(obj).reduce(function(acc, val) {
-                return parseInt(acc) + parseInt(val);
+        getBasket: function () {
+            var store = Cookies.get(ACollection.key) || JSON.stringify(start);
+            var resp = JSON.parse(store);
+            return resp.reduce(function (acc, val) {
+                return parseInt(acc.quantity) + parseInt(val.quantity);
             }) || 0;
         }
     };
 
     ACollection.init();
 
-    jQuery("#galleryControls a").click(function(e) {
+    jQuery("#galleryControls a").click(function (e) {
         e.preventDefault();
         var containingImgSrc = jQuery(this)
             .find("img")
@@ -42,15 +42,25 @@ jQuery(document).ready(function() {
     });
 
     // Saving the items in local storage
-    jQuery('#stock-form').on("submit", function(e) {
+    jQuery('#stock-form').on("submit", function (e) {
         e.preventDefault();
         $this = jQuery(this);
         var quantity = $this.find('select').val();
         var id = jQuery("#productID").val();
-        var state = sessionStorage.getItem(ACollection.key) || "{}";
-        var nice = JSON.parse(state);
-        nice[id] = quantity;
-        sessionStorage.setItem(key,  JSON.stringify(nice));
+        var product = {
+            id: id,
+            quantity: quantity
+        }
+
+        var result = Cookies.get(ACollection.key) || "[]";
+        var basket = JSON.parse(result);
+        var response = [];
+        response = basket.filter(function(item) {
+            return item.id != id;
+        });
+        response.push(product);
+        var formatted = JSON.stringify(response);
+        Cookies.set(ACollection.key, formatted, { expires: 3 });
         ACollection.updateBasket();
     });
 
