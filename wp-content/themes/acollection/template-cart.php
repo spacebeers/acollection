@@ -11,7 +11,35 @@
                 <h2>Your collection</h2>
 
                 <div class="constrain">
-                    <div id="basketCollection"></div>
+                    <?php
+                        $cookie = stripslashes($_COOKIE["A_COLLECTION_BASKET"]);
+                        $cookieArr = (array) json_decode($cookie);
+
+                        foreach ($cookieArr as $item):
+                            $the_post = get_post($item->id);
+                        ?>
+
+                            <div class="basket-item">
+                                <div class="image">
+                                    <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="">
+                                </div>
+                                <div class="content">
+                                    <h3><?php echo $the_post->post_title; ?></h3>
+                                    <p><?php echo get_field( "product_number", $item->id ); ?></p>
+                                </div>
+                                <div class="meta">
+                                    <label for="stock">Quantity: </label>
+                                    <select name="stock">
+                                        <?php for ($i = 1; $i <= get_field( "stock", $item->id ); $i++): ?>
+                                            <option value="<?php echo $i; ?>" <?php if ($i == $item->quantity): echo "selected"; endif; ?>><?php echo $i; ?></option>
+                                        <?php endfor; ?>
+                                    </select>
+                                    <button>x</button>
+                                </div>
+                            </div>
+                    <?php
+                        endforeach;
+                    ?>
                 </div>
             </div>
 
