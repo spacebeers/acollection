@@ -1,5 +1,5 @@
 {
-  "name": "emapplications",
+  "name": "acollection",
   "version": "0.0.1",
   "devDependencies": {
     "autoprefixer": "^7.1.1",
@@ -19,6 +19,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "list.js": "^1.5.0",
+    "mustache": "^2.3.0",
     "shufflejs": "^5.0.1"
   }
 }

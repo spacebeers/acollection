@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
         },
 
         getBasket: function() {
-            var store = localStorage.getItem(ACollection.key) || JSON.stringify(start);
+            var store = sessionStorage.getItem(ACollection.key) || JSON.stringify(start);
             var obj = JSON.parse(store);
             return Object.values(obj).reduce(function(acc, val) {
                 return parseInt(acc) + parseInt(val);
@@ -47,10 +47,10 @@ jQuery(document).ready(function() {
         $this = jQuery(this);
         var quantity = $this.find('select').val();
         var id = jQuery("#productID").val();
-        var state = localStorage.getItem(ACollection.key) || "{}";
+        var state = sessionStorage.getItem(ACollection.key) || "{}";
         var nice = JSON.parse(state);
         nice[id] = quantity;
-        localStorage.setItem(key,  JSON.stringify(nice));
+        sessionStorage.setItem(key,  JSON.stringify(nice));
         ACollection.updateBasket();
     });
 

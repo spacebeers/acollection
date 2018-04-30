@@ -2,6 +2,13 @@
 	<section id="primary" class="category-listing">
 		<header class="archive-header text--xs-center">
 			<h1><?php single_term_title(); ?></h1>
+			<?php
+				wp_list_pages(array(
+					'child_of' => $post->post_parent,
+					'exclude' => $post->ID,
+					'depth' => 1
+				));
+			?>
 		</header>
 
 		<?php if ( have_posts() ) : ?>

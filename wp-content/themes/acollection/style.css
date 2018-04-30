@@ -1116,6 +1116,14 @@ body {
   font-weight: 300;
   line-height: 2.6rem;
   overflow-x: hidden;
+  width: 95%;
+  margin: 30px auto;
+}
+@media (min-width: 1250px) {
+  body {
+    width: 1250px;
+    max-width: 1250px;
+  }
 }
 body > div:first-child {
   background: lightyellow;

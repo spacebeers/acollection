@@ -11,7 +11,7 @@
                 <h2>Your collection</h2>
 
                 <div class="constrain">
-                    ITEMS
+                    <div id="basketCollection"></div>
                 </div>
             </div>
 

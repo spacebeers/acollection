@@ -10,6 +10,13 @@ body {
     font-weight: 300;
     line-height: 2.6rem;
     overflow-x: hidden;
+    width: 95%;
+    margin: 30px auto;
+    @media (min-width: @site-max-width) {
+        width: @site-max-width;
+        max-width: @site-max-width;
+    }
+
 }
 
 body > div:first-child {

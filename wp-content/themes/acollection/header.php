@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="col--no-gutters col col--xs-3">
-                            <a href="<?php do_action( 'basket_url' ); ?>" id="basket"></a>
+                            <a href="<?php do_action( 'basket_url' ); ?>" id="basket">Your collection <span class="badge"></span></a>
                         </div>
                     </div>
                 </div>

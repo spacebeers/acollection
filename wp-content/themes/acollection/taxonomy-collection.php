@@ -2,6 +2,7 @@
 	<section id="primary" class="category-listing">
 		<header class="archive-header text--xs-center">
 			<h1><?php single_term_title(); ?></h1>
+			<p>Collection</p>
 		</header>
 
 		<?php if ( have_posts() ) : ?>
@@ -21,22 +22,6 @@
 				echo "NO!!!";
 				// If no content, include the "No posts found" template.
 				get_template_part( 'content', 'none' );
-			endif;
-		?>
-
-		<?php
-			// Show an optional term description.
-			$term_description = term_description();
-			if ( ! empty( $term_description ) ) : ?>
-			<div class="grid category-description">
-				<div class="row">
-					<div class="col col--sm-6 col--md-4 col--sm-offset-3 col--md-offset-4 text--xs-center">
-						<h2><?php single_term_title(); ?></h2>
-						<?php printf( '<div class="taxonomy-description">%s</div>', $term_description ); ?>
-					</div>
-				</div>
-			</div>
-		<?php
 			endif;
 		?>
 	</section>
