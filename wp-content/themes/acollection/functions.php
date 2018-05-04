@@ -23,6 +23,7 @@
     // External CSS
     function acollection_theme_name_styles() {
         wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,600', false );
+        wp_enqueue_style( 'acollection-datepicker', get_template_directory_uri() . '/vendor/air-datepicker/dist/css/datepicker.min.css', false );
     }
 
     add_action( 'wp_enqueue_scripts', 'acollection_theme_name_styles' );
@@ -32,6 +33,8 @@
 
     function acollection_vendor_scripts() {
         wp_enqueue_script( 'acollection-cookie', get_template_directory_uri() . '/vendor/js-cookie/src/js.cookie.js', array ( 'jquery' ), 1.1, true);
+        wp_enqueue_script( 'acollection-datepicker', get_template_directory_uri() . '/vendor/air-datepicker/dist/js/datepicker.min.js', array ( 'jquery' ), 1.1, true);
+        wp_enqueue_script( 'acollection-datepicker-lang', get_template_directory_uri() . '/vendor/air-datepicker/dist/js/i18n/datepicker.en.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'acollection-theme', get_template_directory_uri() . '/scripts/theme.js', array ( 'jquery' ), 1.1, true);
     }
     add_action( 'wp_enqueue_scripts', 'acollection_vendor_scripts' );
@@ -168,6 +171,14 @@
 			'priority'    => 30,
 			'description' => 'Set any basket config here',
         ));
+
+        $wp_customize->add_setting( 'acollection_enquiries_email' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_enquiries_email', array(
+		    'label'    => __( 'Equiries email address', 'acollection' ),
+		    'section'  => 'acollection_basket_section',
+		    'settings' => 'acollection_enquiries_email',
+            'type'	   => 'text'
+        )));
 
         $wp_customize->add_setting( 'acollection_basket_text' );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_basket_text', array(

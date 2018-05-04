@@ -36,7 +36,8 @@ gulp.task('move', function () {
     gulp.src([
         './node_modules/bootstrap/**/*',
         './node_modules/list.js/dist/*',
-        './node_modules/js-cookie/src/js.cookie.js'
+        './node_modules/js-cookie/src/js.cookie.js',
+        './node_modules/air-datepicker/**/*'
     ], { base: './node_modules' })
         .pipe(gulp.dest('./vendor'));
 });
