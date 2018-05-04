@@ -3,9 +3,7 @@ jQuery(document).ready(function () {
     var $gallerymain = jQuery("#galleryMain");
     var $basket = jQuery("#basket");
     var key = "A_COLLECTION_BASKET";
-    var start = [{
-        "0": 0
-    }]
+    var start = [{ quantity: 0 }];
 
     var ACollection = {
         key: key,
@@ -23,7 +21,7 @@ jQuery(document).ready(function () {
             var resp = JSON.parse(store);
             return resp.reduce(function (acc, val) {
                 return parseInt(acc.quantity) + parseInt(val.quantity);
-            }, []) || 0;
+            }, { quantity: 0 }) || 0;
         },
 
         deleteItem: function (id) {
@@ -63,7 +61,7 @@ jQuery(document).ready(function () {
             quantity: quantity
         }
 
-        var result = Cookies.get(ACollection.key) || "[{}]";
+        var result = Cookies.get(ACollection.key) || "[]";
         var basket = JSON.parse(result);
         var response = [];
         response = basket.filter(function(item) {

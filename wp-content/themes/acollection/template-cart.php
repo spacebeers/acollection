@@ -14,34 +14,42 @@
                     <?php
                         $cookie = stripslashes($_COOKIE["A_COLLECTION_BASKET"]);
                         $cookieArr = (array) json_decode($cookie);
+                        $items = count($cookieArr);
 
-                        foreach ($cookieArr as $item):
-                            $the_post = get_post($item->id);
+                        if ($items > 0):
+                            foreach ($cookieArr as $item):
+                                $the_post = get_post($item->id);
+                                if ($item->id):
+                            ?>
+
+                                <div class="basket-item">
+                                    <div class="image">
+                                        <a href="<?php the_permalink($item->id); ?>">
+                                            <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h3><a href="<?php the_permalink($item->id); ?>"><?php echo $the_post->post_title; ?></a></h3>
+                                        <p><?php echo get_field( "product_number", $item->id ); ?></p>
+                                    </div>
+                                    <div class="meta">
+                                        <label for="stock">Quantity: </label>
+                                        <select name="stock">
+                                            <?php for ($i = 1; $i <= get_field( "stock", $item->id ); $i++): ?>
+                                                <option value="<?php echo $i; ?>" <?php if ($i == $item->quantity): echo "selected"; endif; ?>><?php echo $i; ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                        <button class="jsDelete" data-id="<?php echo $item->id; ?>">x</button>
+                                    </div>
+                                </div>
+                        <?php
+                                endif;
+                            endforeach;
+                        else:
+                            echo "Basket empty";
+                        endif;
                         ?>
 
-                            <div class="basket-item">
-                                <div class="image">
-                                    <a href="<?php the_permalink($item->id); ?>">
-                                        <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <h3><a href="<?php the_permalink($item->id); ?>"><?php echo $the_post->post_title; ?></a></h3>
-                                    <p><?php echo get_field( "product_number", $item->id ); ?></p>
-                                </div>
-                                <div class="meta">
-                                    <label for="stock">Quantity: </label>
-                                    <select name="stock">
-                                        <?php for ($i = 1; $i <= get_field( "stock", $item->id ); $i++): ?>
-                                            <option value="<?php echo $i; ?>" <?php if ($i == $item->quantity): echo "selected"; endif; ?>><?php echo $i; ?></option>
-                                        <?php endfor; ?>
-                                    </select>
-                                    <button class="jsDelete" data-id="<?php echo $item->id; ?>">x</button>
-                                </div>
-                            </div>
-                    <?php
-                        endforeach;
-                    ?>
                 </div>
             </div>
 
