@@ -33,7 +33,7 @@
                                         <p><?php echo get_field( "product_number", $item->id ); ?></p>
                                     </div>
                                     <div class="meta">
-                                        <label for="stock">Quantity: </label>
+                                        <label for="stock">Quantity:  *</label>
                                         <select name="stock">
                                             <?php for ($i = 1; $i <= get_field( "stock", $item->id ); $i++): ?>
                                                 <option value="<?php echo $i; ?>" <?php if ($i == $item->quantity): echo "selected"; endif; ?>><?php echo $i; ?></option>
@@ -59,37 +59,37 @@
                         <div class="row space-between">
                             <div class="col col--md-6">
                                 <div class="input">
-                                    <label for="first_name">First name</label>
-                                    <input type="text" name="first_name" id="first_name" />
+                                    <label for="first_name">First name *</label>
+                                    <input required type="text" name="first_name" id="first_name" />
                                 </div>
 
                                 <div class="input">
-                                    <label for="last_name">Last name</label>
-                                    <input type="text" name="last_name" id="last_name" />
+                                    <label for="last_name">Last name *</label>
+                                    <input required type="text" name="last_name" id="last_name" />
                                 </div>
 
                                 <div class="input">
-                                    <label for="email_address">Email address</label>
-                                    <input type="text" name="email_address" id="email_address" />
+                                    <label for="email_address">Email address *</label>
+                                    <input required type="text" name="email_address" id="email_address" />
                                 </div>
 
                                 <div class="input">
-                                    <label for="telephone">Telephone</label>
-                                    <input type="text" name="telephone" id="telephone" />
+                                    <label for="telephone">Telephone *</label>
+                                    <input required type="text" name="telephone" id="telephone" />
                                 </div>
 
                                 <div class="grid grid--no-gutters">
                                     <div class="row row--no-gutters">
                                         <div class="col col--md-6">
                                             <div class="input">
-                                                <label for="from_date">From date</label>
-                                                <input type="text" readonly name="from_date" id="from_date" class="datepicker-here" data-position="right top" data-language='en' />
+                                                <label for="from_date">From date *</label>
+                                                <input required type="text" readonly name="from_date" id="from_date" class="datepicker-here" data-position="top center" data-language='en' />
                                             </div>
                                         </div>
                                         <div class="col col--md-6">
                                             <div class="input">
-                                                <label for="return_date">Return date</label>
-                                                <input type="text" readonly name="return_date" id="return_date" class="datepicker-here" data-position="right top" data-language='en' />
+                                                <label for="return_date">Return date *</label>
+                                                <input required type="text" readonly name="return_date" id="return_date" class="datepicker-here" data-position="top center" data-language='en' />
                                             </div>
                                         </div>
                                     </div>
@@ -97,33 +97,33 @@
                             </div>
                             <div class="col col--md-6">
                                 <div class="input">
-                                    <label for="company">Company</label>
-                                    <input type="text" name="company" id="company" />
+                                    <label for="company">Company *</label>
+                                    <input required type="text" name="company" id="company" />
                                 </div>
                                 <div class="input">
-                                    <label for="job_reference">Job Reference</label>
-                                    <input type="text" name="job_reference" id="job_reference" />
+                                    <label for="job_reference">Job Reference *</label>
+                                    <input required type="text" name="job_reference" id="job_reference" />
                                 </div>
                                 <div class="input">
-                                    <label for="building">Delivery address</label>
-                                    <input type="text" placeholder="Building" name="building" id="building" />
+                                    <label for="building">Delivery address *</label>
+                                    <input required type="text" placeholder="Building" name="building" id="building" />
                                 </div>
                                 <div class="input">
-                                    <label for="street" class="visually-hidden">Street</label>
-                                    <input type="text" placeholder="Street" name="street" id="street" />
+                                    <label for="street" class="visually-hidden">Street *</label>
+                                    <input required type="text" placeholder="Street" name="street" id="street" />
                                 </div>
                                 <div class="input">
-                                    <label for="town" class="visually-hidden">Town</label>
-                                    <input type="text" placeholder="Town" name="town" id="town" />
+                                    <label for="town" class="visually-hidden">Town *</label>
+                                    <input required type="text" placeholder="Town" name="town" id="town" />
                                 </div>
                                 <div class="input">
-                                    <label for="post_code" class="visually-hidden">Post code</label>
-                                    <input type="text" placeholder="Post code" name="post_code" id="post_code" />
+                                    <label for="post_code" class="visually-hidden">Post code *</label>
+                                    <input required type="text" placeholder="Post code" name="post_code" id="post_code" />
                                 </div>
                             </div>
 
                             <div class="col col--xs-12 text--xs-center">
-                                <input type="submit" class="btn-primary" value="Submit Enquiry" />
+                                <input required type="submit" class="btn-primary" value="Submit Enquiry" />
                             </div>
                         </div>
                     <?php endif;?>
