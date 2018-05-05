@@ -6,7 +6,7 @@
     <div class="text--xs-center">
 
         <h1>Enquiry Form</h1>
-        <form id="enquiries_form" novalidate>
+        <form id="enquiries_form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" novalidate>
             <div class="grid grid--no-gutters text--xs-center">
                 <h2>Your collection</h2>
 
@@ -123,6 +123,7 @@
                             </div>
 
                             <div class="col col--xs-12 text--xs-center">
+                                <input type="hidden" name="action" value="enquiry_form" />
                                 <input type="submit" class="btn-primary" value="Submit Enquiry" />
                             </div>
                         </div>
