@@ -6,7 +6,7 @@
     <div class="text--xs-center">
 
         <h1>Enquiry Form</h1>
-        <form id="enquiries_form">
+        <form id="enquiries_form" novalidate>
             <div class="grid grid--no-gutters text--xs-center">
                 <h2>Your collection</h2>
 
@@ -60,22 +60,22 @@
                             <div class="col col--md-6">
                                 <div class="input">
                                     <label for="first_name">First name *</label>
-                                    <input required type="text" name="first_name" id="first_name" />
+                                    <input type="text" name="first_name" id="first_name" data-validation="required" />
                                 </div>
 
                                 <div class="input">
                                     <label for="last_name">Last name *</label>
-                                    <input required type="text" name="last_name" id="last_name" />
+                                    <input type="text" name="last_name" id="last_name" data-validation="required" />
                                 </div>
 
                                 <div class="input">
                                     <label for="email_address">Email address *</label>
-                                    <input required type="text" name="email_address" id="email_address" />
+                                    <input type="text" name="email_address" id="email_address" data-validation="email required" />
                                 </div>
 
                                 <div class="input">
                                     <label for="telephone">Telephone *</label>
-                                    <input required type="text" name="telephone" id="telephone" />
+                                    <input type="text" name="telephone" id="telephone" data-validation="required" />
                                 </div>
 
                                 <div class="grid grid--no-gutters">
@@ -83,13 +83,13 @@
                                         <div class="col col--md-6">
                                             <div class="input">
                                                 <label for="from_date">From date *</label>
-                                                <input required type="text" readonly name="from_date" id="from_date" class="datepicker-here" data-position="top center" data-language='en' />
+                                                <input type="text" readonly name="from_date" id="from_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
                                             </div>
                                         </div>
                                         <div class="col col--md-6">
                                             <div class="input">
                                                 <label for="return_date">Return date *</label>
-                                                <input required type="text" readonly name="return_date" id="return_date" class="datepicker-here" data-position="top center" data-language='en' />
+                                                <input type="text" readonly name="return_date" id="return_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
                                             </div>
                                         </div>
                                     </div>
@@ -98,32 +98,32 @@
                             <div class="col col--md-6">
                                 <div class="input">
                                     <label for="company">Company *</label>
-                                    <input required type="text" name="company" id="company" />
+                                    <input data-validation="required" type="text" name="company" id="company" />
                                 </div>
                                 <div class="input">
                                     <label for="job_reference">Job Reference *</label>
-                                    <input required type="text" name="job_reference" id="job_reference" />
+                                    <input data-validation="required" type="text" name="job_reference" id="job_reference" />
                                 </div>
                                 <div class="input">
                                     <label for="building">Delivery address *</label>
-                                    <input required type="text" placeholder="Building" name="building" id="building" />
+                                    <input data-validation="required" type="text" placeholder="Building" name="building" id="building" />
                                 </div>
                                 <div class="input">
                                     <label for="street" class="visually-hidden">Street *</label>
-                                    <input required type="text" placeholder="Street" name="street" id="street" />
+                                    <input data-validation="required" type="text" placeholder="Street" name="street" id="street" />
                                 </div>
                                 <div class="input">
                                     <label for="town" class="visually-hidden">Town *</label>
-                                    <input required type="text" placeholder="Town" name="town" id="town" />
+                                    <input data-validation="required" type="text" placeholder="Town" name="town" id="town" />
                                 </div>
                                 <div class="input">
                                     <label for="post_code" class="visually-hidden">Post code *</label>
-                                    <input required type="text" placeholder="Post code" name="post_code" id="post_code" />
+                                    <input data-validation="required" type="text" placeholder="Post code" name="post_code" id="post_code" />
                                 </div>
                             </div>
 
                             <div class="col col--xs-12 text--xs-center">
-                                <input required type="submit" class="btn-primary" value="Submit Enquiry" />
+                                <input type="submit" class="btn-primary" value="Submit Enquiry" />
                             </div>
                         </div>
                     <?php endif;?>

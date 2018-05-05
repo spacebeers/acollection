@@ -88,5 +88,7 @@ jQuery(document).ready(function () {
         jQuery('body').toggleClass('menu-open');
     });
 
-
+    jQuery.validate({
+        form: '#enquiries_form'
+    });
 });
