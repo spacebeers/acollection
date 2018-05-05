@@ -24,7 +24,7 @@
     function acollection_theme_name_styles() {
         wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,600', false );
         wp_enqueue_style( 'acollection-datepicker', get_template_directory_uri() . '/vendor/air-datepicker/dist/css/datepicker.min.css', false );
-        wp_enqueue_style( 'acollection-datepicker', get_template_directory_uri() . '/vendor/jquery-form-validator/form-validator/theme-default.min.css', false );
+        wp_enqueue_style( 'acollection-validator', get_template_directory_uri() . '/vendor/jquery-form-validator/form-validator/theme-default.min.css', false );
     }
 
     add_action( 'wp_enqueue_scripts', 'acollection_theme_name_styles' );
