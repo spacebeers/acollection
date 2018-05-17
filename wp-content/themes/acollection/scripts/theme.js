@@ -1,6 +1,5 @@
 jQuery(document).ready(function () {
     var $window = jQuery(window);
-    var $gallerymain = jQuery("#galleryMain");
     var $basket = jQuery("#basket");
     var key = "A_COLLECTION_BASKET";
     var start = [{ quantity: 0 }];
@@ -38,18 +37,6 @@ jQuery(document).ready(function () {
     };
 
     ACollection.init();
-
-    jQuery("#galleryControls a").click(function (e) {
-        e.preventDefault();
-        var containingImgSrc = jQuery(this)
-            .find("img")
-            .attr("src");
-
-        $gallerymain
-            .fadeOut()
-            .attr("src", this.href)
-            .fadeIn();
-    });
 
     // Saving the items in local storage
     jQuery('#stock-form').on("submit", function (e) {

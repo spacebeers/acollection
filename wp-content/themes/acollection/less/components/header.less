@@ -48,6 +48,11 @@
     @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
         display: block;
     }
+
+    ul {
+        display: flex;
+        list-style: none;
+    }
 }
 
 .side-nav {
@@ -82,7 +87,7 @@
     }
 
     &.side-nav-right {
-        right: 0;
+        right: -160px;
         top: 100px;
         transform-origin: left bottom;
         transform: rotate(90deg) translateY(-100%);
@@ -90,8 +95,6 @@
         li {
             margin-right: 30px;
         }
-
-
     }
 }
 

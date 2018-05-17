@@ -1110,7 +1110,7 @@ html {
 }
 body {
   background-color: #FFFFFE;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Cantarell', sans-serif;
   color: #424F41;
   font-size: 1.4rem;
   font-weight: 300;
@@ -1119,10 +1119,10 @@ body {
   width: 95%;
   margin: 30px auto;
 }
-@media (min-width: 1250px) {
+@media (min-width: 1300px) {
   body {
-    width: 1250px;
-    max-width: 1250px;
+    width: 1300px;
+    max-width: 1300px;
   }
 }
 body > div:first-child {
@@ -1158,7 +1158,7 @@ h6 {
   margin-top: 0;
   margin-bottom: 15px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 400;
 }
 h2 {
   font-size: 1.6rem;
@@ -1173,7 +1173,6 @@ strong + strong::before {
 }
 a {
   color: #424F41;
-  font-weight: 600;
   text-decoration: none;
   -webkit-transition: color 0.2s linear;
   -o-transition: color 0.2s linear;
@@ -1305,6 +1304,13 @@ button,
     display: block;
   }
 }
+.tablet-nav ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
 .side-nav {
   position: absolute;
   top: 130px;
@@ -1338,7 +1344,7 @@ button,
   margin-left: 30px;
 }
 .side-nav.side-nav-right {
-  right: 0;
+  right: -160px;
   top: 100px;
   -webkit-transform-origin: left bottom;
       -ms-transform-origin: left bottom;
@@ -1460,26 +1466,7 @@ button,
   -o-object-fit: contain;
      object-fit: contain;
 }
-.gallery-controls ul {
-  list-style: none;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.gallery-controls ul li {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 32%;
-      -ms-flex: 0 0 32%;
-          flex: 0 0 32%;
-  border: 1px solid #DCDDDB;
-}
 .site-footer {
-  border-top: 1px solid #DCDDDB;
   padding: 15px 0;
   margin-top: 20px;
   margin-bottom: 40px;
@@ -1491,10 +1478,6 @@ button,
 }
 .social-list li {
   display: inline-block;
-}
-.social-list img {
-  width: 30px;
-  height: 30px;
 }
 .square {
   position: relative;
@@ -1534,4 +1517,7 @@ button,
   margin: -1px;
   padding: 0;
   border: 0;
+}
+.grid--container {
+  max-width: 1279px;
 }

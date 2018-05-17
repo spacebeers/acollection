@@ -1,5 +1,4 @@
 <?php
-    include('classes/social_widget.php');
     include('classes/cart.php');
 
     // Menus
@@ -22,7 +21,7 @@
 
     // External CSS
     function acollection_theme_name_styles() {
-        wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,600', false );
+        wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Cantarell:400,700', false );
         wp_enqueue_style( 'acollection-datepicker', get_template_directory_uri() . '/vendor/air-datepicker/dist/css/datepicker.min.css', false );
         wp_enqueue_style( 'acollection-validator', get_template_directory_uri() . '/vendor/jquery-form-validator/form-validator/theme-default.min.css', false );
     }
@@ -119,37 +118,6 @@
 
         $wp_customize->remove_control("header_image");
 
-        // contact
-        $wp_customize->add_section( 'acollection_contact_section' , array(
-			'title'       => __( 'Contact', 'acollection' ),
-			'priority'    => 30,
-			'description' => 'Add the company contact details in here',
-		));
-
-		$wp_customize->add_setting( 'acollection_twitter' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_twitter', array(
-		    'label'    => __( 'Twitter', 'acollection' ),
-		    'section'  => 'acollection_contact_section',
-		    'settings' => 'acollection_twitter',
-            'type'			 => 'text'
-        )));
-
-		$wp_customize->add_setting( 'acollection_facebook' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_facebook', array(
-		    'label'    => __( 'Facebook', 'acollection' ),
-		    'section'  => 'acollection_contact_section',
-		    'settings' => 'acollection_facebook',
-            'type'			 => 'text'
-		)));
-
-		$wp_customize->add_setting( 'acollection_instagram' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_instagram', array(
-		    'label'    => __( 'Instagram', 'acollection' ),
-		    'section'  => 'acollection_contact_section',
-		    'settings' => 'acollection_instagram',
-            'type'			 => 'text'
-		)));
-
         $wp_customize->add_section( 'acollection_pages_section' , array(
 			'title'       => __( 'Page links', 'acollection' ),
 			'priority'    => 30,
@@ -231,14 +199,6 @@
             'before_title' => '<div class="widget-title">',
             'after_title' => '</div>',
         ));
-        register_sidebar( array(
-            'name' => __( 'Footer column three', 'acollection' ),
-            'id' => 'footer-three-sidebar',
-            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-            'after_widget' => "</aside>",
-            'before_title' => '<div class="widget-title">',
-            'after_title' => '</div>',
-        ));
     }
 
     // Sidebars ends
@@ -248,7 +208,7 @@
     */
     add_action( 'widgets_init', 'acollection_widgets_init' );
     function wpb_load_widget() {
-        register_widget( 'wpb_social_widget' );
+
     }
     add_action( 'widgets_init', 'wpb_load_widget' );
 

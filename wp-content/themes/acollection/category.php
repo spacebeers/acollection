@@ -1,14 +1,22 @@
+<?php
+	$current_category = get_the_category();
+	$top_level = $current_category[0]->parent ? $current_category[0]->parent : $current_category[0]->term_id;
+	$children = get_term_children( $top_level, "category" );
+	$parent = get_term( $top_level, "category" );
+	$parent_link = get_term_link( $parent );
+?>
 <?php get_header(); ?>
 	<section id="primary" class="category-listing">
 		<header class="archive-header text--xs-center">
-			<h1><?php single_term_title(); ?></h1>
-			<?php
-				wp_list_pages(array(
-					'child_of' => $post->post_parent,
-					'exclude' => $post->ID,
-					'depth' => 1
-				));
-			?>
+			<h1><a href="<?php echo $parent_link; ?>"><?php echo $parent->name; ?></a></h1>
+			<ul>
+				<?php foreach ($children as $child):
+					$child_term = get_term( $child, "category" );
+					$child_link = get_term_link( $child );
+				?>
+					<li><a href="<?php echo $child_link; ?>"><?php echo $child_term->name; ?></a></li>
+				<?php endforeach; ?>
+			</ul>
 		</header>
 
 		<?php if ( have_posts() ) : ?>
