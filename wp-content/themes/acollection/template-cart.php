@@ -17,6 +17,7 @@
                         $items = count($cookieArr);
 
                         if ($items > 0):
+                            $count = 0;
                             foreach ($cookieArr as $item):
                                 $the_post = get_post($item->id);
                                 if ($item->id):
@@ -25,7 +26,7 @@
                                 <div class="basket-item">
                                     <div class="image">
                                         <a href="<?php the_permalink($item->id); ?>">
-                                            <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="">
+                                            <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="<?php echo $item->name; ?>">
                                         </a>
                                     </div>
                                     <div class="content">
@@ -34,15 +35,18 @@
                                     </div>
                                     <div class="meta">
                                         <label for="stock">Quantity:  *</label>
-                                        <select name="stock">
+                                        <select name="products[<?php echo $count; ?>]['quantity']">
                                             <?php for ($i = 1; $i <= get_field( "stock", $item->id ); $i++): ?>
                                                 <option value="<?php echo $i; ?>" <?php if ($i == $item->quantity): echo "selected"; endif; ?>><?php echo $i; ?></option>
                                             <?php endfor; ?>
                                         </select>
+                                        <input type="hidden" name="products[<?php echo $count; ?>]['name']" value="<?php echo $the_post->post_title; ?>" />
+                                        <input type="hidden" name="products[<?php echo $count; ?>]['id']" value="<?php echo $item->id; ?>" />
                                         <button class="jsDelete" data-id="<?php echo $item->id; ?>">x</button>
                                     </div>
                                 </div>
                         <?php
+                                    $count++;
                                 endif;
                             endforeach;
                         else:
@@ -60,22 +64,22 @@
                             <div class="col col--md-6">
                                 <div class="input">
                                     <label for="first_name">First name *</label>
-                                    <input type="text" name="first_name" id="first_name" data-validation="required" />
+                                    <input type="text" name="details['first_name']" id="first_name" data-validation="required" />
                                 </div>
 
                                 <div class="input">
                                     <label for="last_name">Last name *</label>
-                                    <input type="text" name="last_name" id="last_name" data-validation="required" />
+                                    <input type="text" name="details['last_name']" id="last_name" data-validation="required" />
                                 </div>
 
                                 <div class="input">
                                     <label for="email_address">Email address *</label>
-                                    <input type="text" name="email_address" id="email_address" data-validation="email required" />
+                                    <input type="text" name="details['email_address']" id="email_address" data-validation="email required" />
                                 </div>
 
                                 <div class="input">
                                     <label for="telephone">Telephone *</label>
-                                    <input type="text" name="telephone" id="telephone" data-validation="required" />
+                                    <input type="text" name="details['telephone']" id="telephone" data-validation="required" />
                                 </div>
 
                                 <div class="grid grid--no-gutters">
@@ -83,13 +87,13 @@
                                         <div class="col col--md-6">
                                             <div class="input">
                                                 <label for="from_date">From date *</label>
-                                                <input type="text" readonly name="from_date" id="from_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
+                                                <input type="text" readonly name="details['from_date']" id="from_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
                                             </div>
                                         </div>
                                         <div class="col col--md-6">
                                             <div class="input">
                                                 <label for="return_date">Return date *</label>
-                                                <input type="text" readonly name="return_date" id="return_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
+                                                <input type="text" readonly name="details['return_date']" id="return_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
                                             </div>
                                         </div>
                                     </div>
@@ -98,27 +102,27 @@
                             <div class="col col--md-6">
                                 <div class="input">
                                     <label for="company">Company *</label>
-                                    <input data-validation="required" type="text" name="company" id="company" />
+                                    <input data-validation="required" type="text" name="details['company']" id="company" />
                                 </div>
                                 <div class="input">
                                     <label for="job_reference">Job Reference *</label>
-                                    <input data-validation="required" type="text" name="job_reference" id="job_reference" />
+                                    <input data-validation="required" type="text" name="details['job_reference']" id="job_reference" />
                                 </div>
                                 <div class="input">
                                     <label for="building">Delivery address *</label>
-                                    <input data-validation="required" type="text" placeholder="Building" name="building" id="building" />
+                                    <input data-validation="required" type="text" placeholder="Building" name="details['building']" id="building" />
                                 </div>
                                 <div class="input">
                                     <label for="street" class="visually-hidden">Street *</label>
-                                    <input data-validation="required" type="text" placeholder="Street" name="street" id="street" />
+                                    <input data-validation="required" type="text" placeholder="Street" name="details['street']" id="street" />
                                 </div>
                                 <div class="input">
                                     <label for="town" class="visually-hidden">Town *</label>
-                                    <input data-validation="required" type="text" placeholder="Town" name="town" id="town" />
+                                    <input data-validation="required" type="text" placeholder="Town" name="details['town']" id="town" />
                                 </div>
                                 <div class="input">
                                     <label for="post_code" class="visually-hidden">Post code *</label>
-                                    <input data-validation="required" type="text" placeholder="Post code" name="post_code" id="post_code" />
+                                    <input data-validation="required" type="text" placeholder="Post code" name="details['post_code']" id="post_code" />
                                 </div>
                             </div>
 

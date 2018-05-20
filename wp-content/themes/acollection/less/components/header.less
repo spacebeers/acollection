@@ -59,6 +59,7 @@
     position: absolute;
     top: 130px; // Random var
     display: none;
+    z-index: 1;
     @media (min-width: @screen-md-min) {
         display: block;
     }
@@ -87,10 +88,10 @@
     }
 
     &.side-nav-right {
-        right: -160px;
-        top: 100px;
-        transform-origin: left bottom;
-        transform: rotate(90deg) translateY(-100%);
+        right: 0;
+        top: 480px;
+        transform-origin: right top;
+        transform: rotate(90deg) translateY(0);
 
         li {
             margin-right: 30px;

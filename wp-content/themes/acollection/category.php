@@ -9,7 +9,7 @@
 	<section id="primary" class="category-listing">
 		<header class="archive-header text--xs-center">
 			<h1><a href="<?php echo $parent_link; ?>"><?php echo $parent->name; ?></a></h1>
-			<ul>
+			<ul class="sub-nav">
 				<?php foreach ($children as $child):
 					$child_term = get_term( $child, "category" );
 					$child_link = get_term_link( $child );

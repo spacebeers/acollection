@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
             var store = Cookies.get(ACollection.key) || JSON.stringify(start);
             var resp = JSON.parse(store);
             return resp.reduce(function (acc, val) {
-                return parseInt(acc.quantity || acc || 0) + parseInt(val.quantity);
+                return parseInt(acc.quantity || 0) + parseInt(val.quantity);
             }, { quantity: 0 }) || 0;
         },
 
