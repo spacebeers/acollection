@@ -3,7 +3,7 @@
 ?>
 
 <?php get_header(); ?>
-    <div class="text--xs-center">
+    <div class="text--xs-center padded-page">
 
         <h1>Enquiry Form</h1>
         <form id="enquiries_form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" novalidate>
@@ -24,16 +24,16 @@
                             ?>
 
                                 <div class="basket-item">
-                                    <div class="image">
+                                    <div class="basket-image">
                                         <a href="<?php the_permalink($item->id); ?>">
                                             <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="<?php echo $item->name; ?>">
                                         </a>
                                     </div>
-                                    <div class="content">
+                                    <div class="basket-content">
                                         <h3><a href="<?php the_permalink($item->id); ?>"><?php echo $the_post->post_title; ?></a></h3>
                                         <p><?php echo get_field( "product_number", $item->id ); ?></p>
                                     </div>
-                                    <div class="meta">
+                                    <div class="basket-meta">
                                         <label for="stock">Quantity:  *</label>
                                         <select name="products[<?php echo $count; ?>]['quantity']">
                                             <?php for ($i = 1; $i <= get_field( "stock", $item->id ); $i++): ?>

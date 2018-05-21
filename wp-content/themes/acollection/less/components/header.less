@@ -57,7 +57,7 @@
 
 .side-nav {
     position: absolute;
-    top: 130px; // Random var
+    top: 0;
     display: none;
     z-index: 1;
     @media (min-width: @screen-md-min) {
@@ -78,7 +78,7 @@
     }
 
     &.side-nav-left {
-        left: 0;
+        left: -45px;
         transform-origin: left top;
         transform: rotate(270deg) translateX(-100%);
 
@@ -88,8 +88,8 @@
     }
 
     &.side-nav-right {
-        right: 0;
-        top: 480px;
+        right: -45px;
+        top: 205px;
         transform-origin: right top;
         transform: rotate(90deg) translateY(0);
 
@@ -154,6 +154,29 @@
 
 #basket {
     float: right;
-    padding: 8px;
-    color: red;
+    padding: 0 28px 0 0;
+    position: relative;
+
+    .badge {
+        &::before {
+            content: "(";
+        }
+        &::after {
+            content: ")";
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        background-image: url(./assets/cart.png);
+        display: block;
+        width: 21px;
+        height: 21px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 }

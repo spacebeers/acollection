@@ -13,16 +13,18 @@
                 </div>
             </div>
             <div class="col col--md-4">
-                <h1 class="title-text"><?php the_title(); ?></h1>
-                <small><?php the_field('product_number'); ?></small>
+                <div class="product-details">
+                    <h1 class="title-text"><?php the_title(); ?></h1>
+                    <small><?php the_field('product_number'); ?></small>
 
-                <p>
-                    Dimension: <?php echo $product_dimensions; ?><br />
-                    <?php if (get_field('colour')): echo "Colour: " . get_field('colour') . "<br />"; endif; ?>
-                    <?php if (get_field('material')): echo "Material: " . get_field('material') . "<br />"; endif; ?>
-                </p>
+                    <p>
+                        Dimension: <?php echo $product_dimensions; ?><br />
+                        <?php if (get_field('colour')): echo "Colour: " . get_field('colour') . "<br />"; endif; ?>
+                        <?php if (get_field('material')): echo "Material: " . get_field('material') . "<br />"; endif; ?>
+                    </p>
 
-                <?php include(locate_template('template-parts/content-product-form.php')); ?>
+                    <?php include(locate_template('template-parts/content-product-form.php')); ?>
+                </div>
             </div>
         </div>
     </div>

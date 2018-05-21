@@ -11,6 +11,7 @@ body {
     font-family: @body-font;
     color: @body-font-color;
     font-size: @body-font-size;
+    text-transform: uppercase;
     font-weight: 300;
     line-height: 2.6rem;
     overflow-x: hidden;
@@ -24,8 +25,6 @@ body {
 }
 
 body > div:first-child {
-    border: 1px solid red;
-
     @media (min-width: @screen-md) {
         position: relative;
         padding-right: 50px;
@@ -34,7 +33,25 @@ body > div:first-child {
 }
 
 .content {
-    overflow: hidden;
+    position: relative;
+    border: 1px solid @border-color;
+}
+
+.padded-page {
+    padding: 20px;
+
+    @media (min-width: @screen-md-min) {
+        padding: 30px 70px;
+    }
+    @media (min-width: @screen-md-min) {
+        padding: 40px 100px;
+    }
+
+    header {
+        border-bottom: 1px solid @border-color;
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+    }
 }
 
 .constrain {

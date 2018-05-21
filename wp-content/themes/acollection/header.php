@@ -11,34 +11,11 @@
 
 <body <?php body_class(); ?>>
     <div class="grid grid--container">
-        <div class="side-nav side-nav-left">
-            <?php
-                wp_nav_menu( array(
-                    'menu'              => 'main_menu',
-                    'theme_location'    => 'main_menu',
-                    'depth'             => 1,
-                    'container'         => 'nav',
-                    'container_class'   => 'main-menu')
-                );
-            ?>
-        </div>
-        <div class="side-nav side-nav-right">
-            <?php
-                wp_nav_menu( array(
-                    'menu'              => 'secondary',
-                    'theme_location'    => 'secondary',
-                    'depth'             => 1,
-                    'container'         => 'nav',
-                    'container_class'   => 'main-menu')
-                );
-            ?>
-        </div>
-
         <header class="site-header" id="header">
             <div class="top-menu">
                 <div class="grid grid--no-gutters">
                     <div class="row row--no-gutters">
-                        <div class="col--no-gutters col col--xs-9">
+                        <div class="col--no-gutters col col--xs-3 col--sm-8">
                             <button id="nav-toogle">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/menu.png" alt="menu">
                             </button>
@@ -63,7 +40,7 @@
                                 ?>
                             </div>
                         </div>
-                        <div class="col--no-gutters col col--xs-3">
+                        <div class="col--no-gutters col col--xs-9 col--sm-4">
                             <a href="<?php do_action( 'basket_url' ); ?>" id="basket">Your collection <span class="badge"></span></a>
                         </div>
                     </div>
@@ -80,4 +57,27 @@
         </header>
 
         <section class="content">
+            <div class="side-nav side-nav-left">
+                <?php
+                    wp_nav_menu( array(
+                        'menu'              => 'main_menu',
+                        'theme_location'    => 'main_menu',
+                        'depth'             => 1,
+                        'container'         => 'nav',
+                        'container_class'   => 'main-menu')
+                    );
+                ?>
+            </div>
+            <div class="side-nav side-nav-right">
+                <?php
+                    wp_nav_menu( array(
+                        'menu'              => 'secondary_menu',
+                        'theme_location'    => 'secondary_menu',
+                        'depth'             => 1,
+                        'container'         => 'nav',
+                        'container_class'   => 'main-menu')
+                    );
+                ?>
+            </div>
+
             <main id="main" class="site-main" role="main">

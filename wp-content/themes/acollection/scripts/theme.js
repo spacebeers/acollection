@@ -12,7 +12,16 @@ jQuery(document).ready(function () {
         },
 
         updateBasket: function () {
-            $basket.find('.badge').html(ACollection.getBasket());
+            var count = ACollection.getBasket();
+            if (count.quantity === 0 || count === 0) {
+                $basket.find('.badge')
+                    .addClass("hidden")
+                    .html(count);
+            } else {
+                $basket.find('.badge')
+                    .removeClass("hidden")
+                    .html(count);
+            }
         },
 
         getBasket: function () {
