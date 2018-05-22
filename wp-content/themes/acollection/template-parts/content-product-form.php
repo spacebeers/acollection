@@ -10,6 +10,6 @@
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
         <?php endfor; ?>
     </select>
-    <input type="text" name="id" id="productID" value="<?php the_ID(); ?>" />
-    <button type="submit" class="btn-primary btn--xs-block">Add to your collection</button>
+    <input type="hidden" name="id" id="productID" value="<?php the_ID(); ?>" />
+    <button type="submit" class="btn-ghost btn-block">Add to your collection</button>
 </form>

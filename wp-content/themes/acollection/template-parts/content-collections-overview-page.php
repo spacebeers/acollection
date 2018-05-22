@@ -24,15 +24,14 @@
 </article>
 
 <div class="grid grid--no-gutters">
-    <div class="row space-between">
+    <div class="row row--no-gutters space-between">
         <?php
             if( have_rows('collections') ):
                 while ( have_rows('collections') ) : $row = the_row();
                     $type = get_sub_field('collection');
                     $link = get_term_link($type);
                 ?>
-                    <div class="col col--sm-12 col--md-6">
-                        <h2><a href="<?php echo $link; ?>"><?php echo $type->name; ?></a></h2>
+                    <div class="col col--no-gutters col--sm-12 col--md-6">
                         <div class="moodboard">
                             <div class="moodboard--column">
                                 <div class="moodboard-group">
@@ -119,6 +118,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h2><a href="<?php echo $link; ?>"><?php echo $type->name; ?></a></h2>
                     </div>
                 <?php
                 endwhile;

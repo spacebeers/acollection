@@ -1102,8 +1102,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     margin-left: 100%;
   }
 }
-body {
-  color: red;
+.page hr {
+  height: 1px;
+  color: #DCDDDB;
+  background: #DCDDDB;
+  font-size: 0;
+  border: 0;
+  margin: 20px 0;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -1120,6 +1125,7 @@ body {
   text-transform: uppercase;
   font-weight: 300;
   line-height: 2.6rem;
+  letter-spacing: 2px;
   overflow-x: hidden;
   width: 95%;
   margin: 30px auto;
@@ -1140,6 +1146,9 @@ body {
 .content {
   position: relative;
   border: 1px solid #DCDDDB;
+}
+.home .content {
+  border: none;
 }
 .padded-page {
   padding: 20px;
@@ -1176,12 +1185,16 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   text-transform: uppercase;
   font-weight: 400;
 }
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+}
+.sub-title {
+  font-size: 1.2rem;
+  color: #DCDDDB;
 }
 strong + strong::before {
   content: ", ";
@@ -1234,27 +1247,35 @@ button,
   text-align: center;
   background: #FFFFFE;
   color: #1A1919;
-  border: 4px solid #1A1919;
+  border: 1px solid #DCDDDB;
   text-transform: uppercase;
+}
+.btn-block {
+  display: block;
+  width: 100%;
 }
 @media (max-width: 767px) {
   .btn--xs-block {
     display: block;
+    width: 100%;
   }
 }
 @media (max-width: 1023px) {
   .btn--sm-block {
     display: block;
+    width: 100%;
   }
 }
 @media (max-width: 1278px) {
   .btn--md-block {
     display: block;
+    width: 100%;
   }
 }
 @media (max-width: 1365px) {
   .btn--lg-block {
     display: block;
+    width: 100%;
   }
 }
 .input {
@@ -1265,10 +1286,45 @@ button,
   text-transform: uppercase;
 }
 .input input {
-  border: 1px solid black;
+  border: 1px solid #DCDDDB;
   padding: 9px;
   width: 100%;
   margin-bottom: 20px;
+}
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #DCDDDB;
+  padding: 9px 25px 9px 9px;
+  border-radius: 0;
+  background: transparent;
+  background-image: url(assets/arrows.png);
+  background-repeat: no-repeat;
+  background-position: 80%;
+  -webkit-background-size: 9px 9px;
+          background-size: 9px;
+}
+select::-ms-expand {
+  display: none;
+  /* hide the default arrow in ie10 and ie11 */
+}
+.date-input {
+  width: 80%;
+  position: relative;
+}
+.date-input::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  right: -37px;
+  background-image: url(assets/calendar.png);
+  display: block;
+  width: 30px;
+  height: 30px;
+  -webkit-background-size: contain;
+          background-size: contain;
+  background-repeat: no-repeat;
 }
 .site-header {
   margin-bottom: 20px;
@@ -1412,11 +1468,6 @@ button,
 .menu li:last-child::after {
   display: none;
 }
-.menu li a {
-  text-transform: uppercase;
-  font-weight: 100;
-  font-size: 1.4rem;
-}
 .menu li a:hover {
   text-decoration: none;
 }
@@ -1449,6 +1500,19 @@ button,
   -webkit-background-size: contain;
           background-size: contain;
   background-repeat: no-repeat;
+}
+.category .content {
+  border: none;
+}
+.category .archive-header {
+  border: 1px solid #DCDDDB;
+  border-bottom: none;
+}
+.category section.category-listing {
+  border-bottom: 1px solid #DCDDDB;
+}
+.category .grid {
+  margin-top: -22px;
 }
 .category-listing a {
   display: block;
@@ -1495,10 +1559,18 @@ button,
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  border-top: 1px solid #DCDDDB;
+}
+.basket-item:last-of-type {
+  border-bottom: 1px solid #DCDDDB;
+  margin-bottom: 50px;
 }
 .basket-item img {
   width: 120px;
   height: auto;
+}
+.cart-page .btn-ghost {
+  padding: 15px 100px;
 }
 .moodboard {
   display: -webkit-box;
@@ -1510,15 +1582,20 @@ button,
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.moodboard .content {
+  border: 5px solid #FFFFFE !important;
+}
 .moodboard img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
   display: block;
 }
 .moodboard a {
   display: block;
+  width: 100%;
+  height: 100%;
 }
 .moodboard .moodboard--column {
   -webkit-box-flex: 1;
@@ -1584,13 +1661,20 @@ button,
     padding: 40px;
   }
 }
+.product-details .btn-block {
+  margin-top: 30px;
+}
 .site-footer {
+  font-size: 1.2rem;
   padding: 15px 0;
   margin-top: 20px;
   margin-bottom: 40px;
 }
 .site-footer .menu {
   padding: 0;
+}
+.site-footer .menu a {
+  font-size: 1.2rem;
 }
 .social-list {
   list-style: none;
@@ -1613,6 +1697,7 @@ button,
   position: absolute;
   width: 100%;
   height: 100%;
+  border: none;
 }
 .square img {
   width: 100%;

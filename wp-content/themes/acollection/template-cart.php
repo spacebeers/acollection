@@ -3,13 +3,13 @@
 ?>
 
 <?php get_header(); ?>
-    <div class="text--xs-center padded-page">
+    <div class="text--xs-center padded-page cart-page">
 
         <h1>Enquiry Form</h1>
+        <h2>Your collection</h2>
+
         <form id="enquiries_form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" novalidate>
             <div class="grid grid--no-gutters text--xs-center">
-                <h2>Your collection</h2>
-
                 <div class="constrain">
                     <?php
                         $cookie = stripslashes($_COOKIE["A_COLLECTION_BASKET"]);
@@ -34,7 +34,7 @@
                                         <p><?php echo get_field( "product_number", $item->id ); ?></p>
                                     </div>
                                     <div class="basket-meta">
-                                        <label for="stock">Quantity:  *</label>
+                                        <label for="stock">Quantity</label>
                                         <select name="products[<?php echo $count; ?>]['quantity']">
                                             <?php for ($i = 1; $i <= get_field( "stock", $item->id ); $i++): ?>
                                                 <option value="<?php echo $i; ?>" <?php if ($i == $item->quantity): echo "selected"; endif; ?>><?php echo $i; ?></option>
@@ -85,15 +85,15 @@
                                 <div class="grid grid--no-gutters">
                                     <div class="row row--no-gutters">
                                         <div class="col col--md-6">
-                                            <div class="input">
+                                            <div class="input date-input">
                                                 <label for="from_date">From date *</label>
-                                                <input type="text" readonly name="details['from_date']" id="from_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
+                                                <input type="text" placeholder="DD/MM/YYYY" readonly name="details['from_date']" id="from_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
                                             </div>
                                         </div>
                                         <div class="col col--md-6">
-                                            <div class="input">
+                                            <div class="input date-input">
                                                 <label for="return_date">Return date *</label>
-                                                <input type="text" readonly name="details['return_date']" id="return_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
+                                                <input type="text" placeholder="DD/MM/YYYY" readonly name="details['return_date']" id="return_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@
 
                             <div class="col col--xs-12 text--xs-center">
                                 <input type="hidden" name="action" value="enquiry_form" />
-                                <input type="submit" class="btn-primary" value="Submit Enquiry" />
+                                <input type="submit" class="btn-ghost" value="Submit Enquiry" />
                             </div>
                         </div>
                     <?php endif;?>

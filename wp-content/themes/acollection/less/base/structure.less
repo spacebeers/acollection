@@ -14,6 +14,7 @@ body {
     text-transform: uppercase;
     font-weight: 300;
     line-height: 2.6rem;
+    letter-spacing: 2px;
     overflow-x: hidden;
     width: 95%;
     margin: 30px auto;
@@ -35,6 +36,12 @@ body > div:first-child {
 .content {
     position: relative;
     border: 1px solid @border-color;
+}
+
+.home {
+    .content {
+        border: none;
+    }
 }
 
 .padded-page {

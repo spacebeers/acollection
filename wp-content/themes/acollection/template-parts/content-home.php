@@ -2,16 +2,16 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class("home-page"); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class("home-page no-border"); ?>>
     <div class="grid grid--no-gutters">
-        <div class="row space-between">
+        <div class="row row--no-gutters space-between">
             <?php
                 if( have_rows('moodboard') ):
                     while ( have_rows('moodboard') ) : $row = the_row();
                         $image_1 = get_sub_field('image_1');
                         $link_1 = get_sub_field('link_2');
                     ?>
-                        <div class="col col--sm-12 col--md-6">
+                        <div class="col col--no-gutters col--sm-12 col--md-6">
                             <h2><a href="<?php echo $link; ?>"><?php echo $type->name; ?></a></h2>
                             <div class="moodboard">
                                 <div class="moodboard--column">

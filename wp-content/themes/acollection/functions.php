@@ -223,46 +223,31 @@
         remove_menu_page('edit-comments.php');
     }
 
-// Only flush the file cache with each request to post list table, edit post screen, or theme editor.
-function wp_42573_fix_template_caching( WP_Screen $current_screen ) {
+    // Only flush the file cache with each request to post list table, edit post screen, or theme editor.
+    function wp_42573_fix_template_caching( WP_Screen $current_screen ) {
 
-	if ( ! in_array( $current_screen->base, array( 'post', 'edit', 'theme-editor' ), true ) ) {
-		return;
-	}
-	$theme = wp_get_theme();
-	if ( ! $theme ) {
-		return;
-	}
-	$cache_hash = md5( $theme->get_theme_root() . '/' . $theme->get_stylesheet() );
-	$label = sanitize_key( 'files_' . $cache_hash . '-' . $theme->get( 'Version' ) );
-	$transient_key = substr( $label, 0, 29 ) . md5( $label );
-	delete_transient( $transient_key );
-}
-add_action( 'current_screen', 'wp_42573_fix_template_caching' );
+        if ( ! in_array( $current_screen->base, array( 'post', 'edit', 'theme-editor' ), true ) ) {
+            return;
+        }
+        $theme = wp_get_theme();
+        if ( ! $theme ) {
+            return;
+        }
+        $cache_hash = md5( $theme->get_theme_root() . '/' . $theme->get_stylesheet() );
+        $label = sanitize_key( 'files_' . $cache_hash . '-' . $theme->get( 'Version' ) );
+        $transient_key = substr( $label, 0, 29 ) . md5( $label );
+        delete_transient( $transient_key );
+    }
+    add_action( 'current_screen', 'wp_42573_fix_template_caching' );
 
-// Register custom post types with the flipping loop
-function acollection_add_custom_types( $query ) {
-  if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-    $query->set( 'post_type', array(
-     'post', 'nav_menu_item', 'product'
-		));
-	  return $query;
-	}
-}
-add_filter( 'pre_get_posts', 'acollection_add_custom_types' );
-
-// Breadcrumbs
-function the_breadcrumb() {
-    if (!is_home()) {
-        if (is_category() || is_single()) {
-            the_category('title_li=');
-            if (is_single()) {
-                echo " | ";
-                the_title();
-            }
-        } elseif (is_page()) {
-            echo the_title();
+    // Register custom post types with the flipping loop
+    function acollection_add_custom_types( $query ) {
+    if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+        $query->set( 'post_type', array(
+        'post', 'nav_menu_item', 'product'
+            ));
+        return $query;
         }
     }
-}
+    add_filter( 'pre_get_posts', 'acollection_add_custom_types' );
 ?>

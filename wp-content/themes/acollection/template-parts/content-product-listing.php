@@ -7,6 +7,6 @@
         </div>
     </div>
     <h2 class="title-text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-    <span class="brand-text">Total stock: <?php the_field('stock'); ?></span>
+    <span class="sub-title">Total stock: <?php the_field('stock'); ?></span>
 </article>
 
