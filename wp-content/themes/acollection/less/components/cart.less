@@ -3,10 +3,10 @@
     text-align: left;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid @border-color;
+    border-top: 1px solid @outline-color;
 
     &:last-of-type {
-        border-bottom: 1px solid @border-color;
+        border-bottom: 1px solid @outline-color;
         margin-bottom: 50px;
     }
 
@@ -19,5 +19,13 @@
 .cart-page {
     .btn-ghost {
         padding: 15px 100px;
+    }
+
+    .form-error {
+        margin-top: -10px;
+    }
+
+    input.error, select.error, input.valid, select.valid {
+        background-image: none;
     }
 }

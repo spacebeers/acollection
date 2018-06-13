@@ -7,12 +7,8 @@
         <div class="row row--no-gutters space-between">
             <?php
                 if( have_rows('moodboard') ):
-                    while ( have_rows('moodboard') ) : $row = the_row();
-                        $image_1 = get_sub_field('image_1');
-                        $link_1 = get_sub_field('link_2');
-                    ?>
+                    while ( have_rows('moodboard') ) : $row = the_row(); ?>
                         <div class="col col--no-gutters col--sm-12 col--md-6">
-                            <h2><a href="<?php echo $link; ?>"><?php echo $type->name; ?></a></h2>
                             <div class="moodboard">
                                 <div class="moodboard--column">
                                     <div class="moodboard-group">
@@ -20,8 +16,8 @@
                                             <div class="moodboard-group-small">
                                                 <div class="square">
                                                     <div class="content">
-                                                        <a href="<?php echo $square; ?>">
-                                                            <img src="http://placebear.com/200/300" alt="">
+                                                        <a href="<?php echo $items[0]['link']; ?>">
+                                                            <img src="<?php echo $image_1['url']; ?>" alt="">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -101,6 +97,7 @@
                             </div>
                         </div>
                     <?php
+                        wp_reset_postdata();
                     endwhile;
                 endif;
             ?>

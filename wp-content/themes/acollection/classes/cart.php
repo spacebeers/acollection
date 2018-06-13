@@ -26,78 +26,77 @@
         echo $mailer->ErrorInfo;
     }
 
+    function sanitize($field) {
+        return filter_var($field, FILTER_SANITIZE_STRING);
+    }
+
     function prefix_send_email_to_admin() {
         if (count($_POST) != 0):
+            $message = '<html><body>';
+            $message .= '<h2>New enquiry: ref#' . sanitize($_POST['details']['job_reference']) . '</h2>';
+
+
             /**
              * At this point, $_GET/$_POST variable are available
              *
              * We can do our normal processing here
              */
             $safe_results = array();
-            echo "<pre>";
-            print_r($_POST);
+            //echo "<pre>";
+            //var_dump($_POST['products']);
 
-            // Sanitize the POST field
-
-            /*foreach( $_POST as $stuff ) {
-                if( is_array( $stuff ) ) {
-                    foreach( $stuff as $thing ) {
-                        $san = filter_var($thing, FILTER_SANITIZE_STRING);
-                        array_push($safe_array, $san);
-                        echo $san . "<br/>";
-                    }
-                } else {
-                    $san = filter_var($stuff, FILTER_SANITIZE_STRING);
-                    array_push($safe_array, $san);
-                    echo $san . "<br/>";
-                }
-            }*/
-            function test_print($item, $key)
-                {
-                    echo "$key holds " . filter_var($item, FILTER_SANITIZE_STRING) . "\n";
-
-                }
-
-            array_walk_recursive($_POST['products'], 'test_print');
-            array_walk_recursive($_POST['details'], 'test_print');
-            print_r($safe_results);
-            echo "</pre>";
-
-
+            $message .= '<h2>Products</h2>';
+            $message .= '<ul>';
+            foreach($_POST['products'] as $item):
+                $message .= '<li><strong>' . sanitize($item['name']) . '(' . sanitize($item['id']) . ')</strong> x ' . sanitize($item['quantity']) . '</li>';
+            endforeach;
+            $message .= '</ul>';
+            $message .= '<h2>Client details</h2>';
+            $message .= '<ul>';
+            $message .= '<li><strong>Name</strong> ' . sanitize($_POST['details']['first_name']) . ' ' . sanitize($_POST['details']['last_name']) . '</li>';
+            $message .= '<li><strong>Email</strong> ' . sanitize($_POST['details']['email_address']) . '</li>';
+            $message .= '<li><strong>Phone</strong> ' . sanitize($_POST['details']['telephone']) . '</li>';
+            $message .= '<li><strong>Dates</strong> ' . sanitize($_POST['details']['from_date']) . ' - ' . sanitize($_POST['details']['return_date']) . '</li>';
+            $message .= '<li><strong>Company</strong> ' . sanitize($_POST['details']['company']) . '</li>';
+            $message .= '<li><strong>Address</strong> <br />' . sanitize($_POST['details']['building']) . '<br />' . sanitize($_POST['details']['street']) . '<br />' . sanitize($_POST['details']['town']) . '<br />' . sanitize($_POST['details']['post_code']) . '</li>';
+            $message .= '</ul>';
+            $message .= '</body></html>';
+            //echo "</pre>";
 
             // Generate email content
-
 
             // Send to appropriate email
             $to = get_theme_mod('acollection_enquiries_email');
             $subject = 'New website enquiry';
             $headers[] = 'From: A Collection <me@example.net>';
             $headers[] = 'Cc: Atomic Horse <hello@atomichorse.agency>';
-            echo "Sending email\n";
+            $headers[] = "MIME-Version: 1.0";
+            $headers[] = "Content-Type: text/html; charset=ISO-8859-1";
+            //echo "Sending email\n";
+            //echo $message;
             $mailResult = false;
             $mailResult = wp_mail( $to, $subject, $message, $headers );
-            if ($mailResult):
-                echo "Email sent\n";
-            else:
-                echo "Email failed\n";
+
+            if ($mailResult): // Success
+                $page = get_theme_mod( 'acollection_pages_success_link');
+                $link = get_page_link($page);
+                // Wipe basket cookies
+                if (isset($_COOKIE['A_COLLECTION_BASKET'])):
+                    $timer = time()+86400;
+                    setcookie('A_COLLECTION_BASKET', 1, $timer, '/');
+                endif;
+
+                wp_redirect($link);
+            else: // Fail
+                $page = get_theme_mod( 'acollection_pages_error_link');
+                $link = get_page_link($page);
+                wp_redirect($link);
             endif;
-
-
-
-            // Clear cookies
-            if (isset($_COOKIE['A_COLLECTION_BASKET'])):
-                setcookie("A_COLLECTION_BASKET", "", 1);
-                echo "clearing cookies\n";
-            endif;
-
-            // write to logs
-
-            // Handle errors
-
-            // Redirect
         else:
             // Post content doesn't exist
-
+            $page = get_theme_mod( 'acollection_pages_error_link');
+            $link = get_page_link($page);
+            wp_redirect($link);
         endif;
 
     }

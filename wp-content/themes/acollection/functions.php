@@ -138,9 +138,9 @@
         ) );
 
         $wp_customize->add_section( 'acollection_basket_section' , array(
-			'title'       => __( 'Basket', 'acollection' ),
+			'title'       => __( 'Order system', 'acollection' ),
 			'priority'    => 30,
-			'description' => 'Set any basket config here',
+			'description' => 'Set any order system config here',
         ));
 
         $wp_customize->add_setting( 'acollection_enquiries_email' );
@@ -158,7 +158,31 @@
 		    'settings' => 'acollection_basket_text',
             'type'			 => 'textarea',
             'sanitize_callback' => 'test_sanitize_text',
-		)));
+        )));
+
+        $wp_customize->add_setting( 'acollection_pages_success_link', array(
+            'capability' => 'edit_theme_options',
+            'sanitize_callback' => 'acollection_sanitize_dropdown_pages',
+        ) );
+
+        $wp_customize->add_control( 'acollection_pages_success_link', array(
+            'type' => 'dropdown-pages',
+            'section' => 'acollection_basket_section',
+            'label' => __( 'Order complete page' ),
+            'description' => __( 'Select a page to use as the order complete page.' ),
+        ) );
+
+        $wp_customize->add_setting( 'acollection_pages_error_link', array(
+            'capability' => 'edit_theme_options',
+            'sanitize_callback' => 'acollection_sanitize_dropdown_pages',
+        ) );
+
+        $wp_customize->add_control( 'acollection_pages_error_link', array(
+            'type' => 'dropdown-pages',
+            'section' => 'acollection_basket_section',
+            'label' => __( 'Order error page' ),
+            'description' => __( 'Select a page to use as the order error page.' ),
+        ) );
 
         function acollection_sanitize_dropdown_pages( $page_id, $setting ) {
             // Ensure $input is an absolute integer.
@@ -180,6 +204,24 @@
     add_action( 'customize_register', 'acollection_theme_customizer' );
 
     // Theme customisers ends
+
+    // display custom admin notice
+    function acollection_custom_admin_notice() { ?>
+
+        <div class="notice notice-error">
+            <p><?php _e('Basket system is not configured correctly. Please see the theme customiser', 'acollection'); ?></p>
+        </div>
+
+    <?php }
+    if ( get_theme_mod( 'acollection_pages_error_link') == '' ):
+        add_action('admin_notices', 'acollection_custom_admin_notice');
+    endif;
+    if ( get_theme_mod( 'acollection_pages_success_link') == '' ):
+        add_action('admin_notices', 'acollection_custom_admin_notice');
+    endif;
+    if ( get_theme_mod( 'acollection_enquiries_email') == '' ):
+        add_action('admin_notices', 'acollection_custom_admin_notice');
+    endif;
 
     // Sidebars
 
@@ -250,4 +292,21 @@
         }
     }
     add_filter( 'pre_get_posts', 'acollection_add_custom_types' );
+
+    function my_mce4_options($init) {
+
+        $custom_colours = '
+            "000000", "Palette darkest",
+            "9d9d9c", "Palette light",
+            "e3e3e3", "Palette outline"
+        ';
+
+        // build colour grid default+custom colors
+        $init['textcolor_map'] = '['.$custom_colours.']';
+
+        $init['textcolor_rows'] = 1;
+
+        return $init;
+    }
+    add_filter('tiny_mce_before_init', 'my_mce4_options');
 ?>

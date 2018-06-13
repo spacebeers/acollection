@@ -1,5 +1,5 @@
 <article class="category-listing">
-    <div class="square">
+    <div class="category-image">
         <div class="content">
             <a href="<?php the_permalink(); ?>" class="image-link" title="<?php the_title_attribute(); ?>">
                 <?php the_post_thumbnail(); ?>

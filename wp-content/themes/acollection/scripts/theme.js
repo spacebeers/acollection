@@ -27,6 +27,9 @@ jQuery(document).ready(function () {
         getBasket: function () {
             var store = Cookies.get(ACollection.key) || JSON.stringify(start);
             var resp = JSON.parse(store);
+            if (resp == 1) {
+                resp = start;
+            }
             return resp.reduce(function (acc, val) {
                 return parseInt(acc.quantity || 0) + parseInt(val.quantity);
             }, { quantity: 0 }) || 0;
@@ -35,6 +38,9 @@ jQuery(document).ready(function () {
         deleteItem: function (id) {
             var store = Cookies.get(ACollection.key) || JSON.stringify(start);
             var resp = JSON.parse(store);
+            if (resp == 1) {
+                resp = start;
+            }
             var response = [];
             response = resp.filter(function (item) {
                 return item.id != id;
@@ -60,6 +66,9 @@ jQuery(document).ready(function () {
 
         var result = Cookies.get(ACollection.key) || "[]";
         var basket = JSON.parse(result);
+        if (basket == 1) {
+            basket = start;
+        }
         var response = [];
         response = basket.filter(function(item) {
             return item.id != id;

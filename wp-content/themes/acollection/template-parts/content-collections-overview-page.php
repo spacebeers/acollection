@@ -30,8 +30,10 @@
                 while ( have_rows('collections') ) : $row = the_row();
                     $type = get_sub_field('collection');
                     $link = get_term_link($type);
+                    $term = get_term($type);
+                    print_r(get_field('moodboard', $type));
                 ?>
-                    <div class="col col--no-gutters col--sm-12 col--md-6">
+                    <div class="col col--no-gutters col--sm-12 col--md-6 collections-grid">
                         <div class="moodboard">
                             <div class="moodboard--column">
                                 <div class="moodboard-group">
@@ -39,7 +41,7 @@
                                         <div class="moodboard-group-small">
                                             <div class="square">
                                                 <div class="content">
-                                                    <a href="<?php echo $square; ?>">
+                                                    <a href="<?php echo $link; ?>">
                                                         <img src="http://placebear.com/200/300" alt="">
                                                     </a>
                                                 </div>
@@ -48,7 +50,7 @@
                                         <div class="moodboard-group-small">
                                             <div class="square">
                                                 <div class="content">
-                                                    <a href="<?php echo $square; ?>">
+                                                    <a href="<?php echo $link; ?>">
                                                         <img src="http://placebear.com/200/300" alt="">
                                                     </a>
                                                 </div>
@@ -58,7 +60,7 @@
                                     <div class="moodboard-group-large">
                                         <div class="square">
                                             <div class="content">
-                                                <a href="<?php echo $square; ?>">
+                                                <a href="<?php echo $link; ?>">
                                                     <img src="http://placebear.com/200/300" alt="">
                                                 </a>
                                             </div>
@@ -68,7 +70,7 @@
                                 <div class="moodboard-main">
                                     <div class="square">
                                         <div class="content">
-                                            <a href="<?php echo $square; ?>">
+                                            <a href="<?php echo $link; ?>">
                                                 <img src="http://placebear.com/200/300" alt="">
                                             </a>
                                         </div>
@@ -79,7 +81,7 @@
                                 <div class="moodboard-main">
                                     <div class="square">
                                         <div class="content">
-                                            <a href="<?php echo $square; ?>">
+                                            <a href="<?php echo $link; ?>">
                                                 <img src="http://placebear.com/200/300" alt="">
                                             </a>
                                         </div>
@@ -90,7 +92,7 @@
                                         <div class="moodboard-group-small">
                                             <div class="square">
                                                 <div class="content">
-                                                    <a href="<?php echo $square; ?>">
+                                                    <a href="<?php echo $link; ?>">
                                                         <img src="http://placebear.com/200/300" alt="">
                                                     </a>
                                                 </div>
@@ -99,7 +101,7 @@
                                         <div class="moodboard-group-small">
                                             <div class="square">
                                                 <div class="content">
-                                                    <a href="<?php echo $square; ?>">
+                                                    <a href="<?php echo $link; ?>">
                                                         <img src="http://placebear.com/200/300" alt="">
                                                     </a>
                                                 </div>
@@ -109,7 +111,7 @@
                                     <div class="moodboard-group-large">
                                         <div class="square">
                                             <div class="content">
-                                                <a href="<?php echo $square; ?>">
+                                                <a href="<?php echo $link; ?>">
                                                     <img src="http://placebear.com/200/300" alt="">
                                                 </a>
                                             </div>
