@@ -27,12 +27,33 @@ jQuery(document).ready(function () {
         getBasket: function () {
             var store = Cookies.get(ACollection.key) || JSON.stringify(start);
             var resp = JSON.parse(store);
+            var count = 0;
             if (resp == 1) {
                 resp = start;
             }
+
             return resp.reduce(function (acc, val) {
-                return parseInt(acc.quantity || 0) + parseInt(val.quantity);
-            }, { quantity: 0 }) || 0;
+                return parseInt(acc || 0) + parseInt(val.quantity);
+            }, 0) || 0;
+        },
+
+        updateItem: function(id, quantity) {
+            var store = Cookies.get(ACollection.key) || JSON.stringify(start);
+            var resp = JSON.parse(store);
+            if (resp == 1) {
+                resp = start;
+            }
+            var response = [];
+            response = resp.map(function (item) {
+                let newItem = item;
+                if (item.id == id) {
+                    newItem.quantity = quantity;
+                }
+                return item.id != id ? item : newItem;
+            });
+            var formatted = JSON.stringify(response);
+            Cookies.set(ACollection.key, formatted, { expires: 3 });
+            ACollection.updateBasket();
         },
 
         deleteItem: function (id) {
@@ -85,6 +106,12 @@ jQuery(document).ready(function () {
         ACollection.deleteItem($this.attr('data-id'));
         $this.closest('.basket-item').remove();
         console.log($this.attr('data-id'));
+    })
+
+    jQuery('.jsQuantity').on('change', function (e) {
+        e.preventDefault();
+        var $this = jQuery(this);
+        ACollection.updateItem($this.attr('data-id'), $this.val());
     })
 
     jQuery("#nav-toogle").click(function () {

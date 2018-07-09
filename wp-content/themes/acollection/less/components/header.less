@@ -1,15 +1,30 @@
 .site-header {
     margin-bottom: @content-gap;
+    position: relative;
 
     .top-menu {
         @media (max-width: @screen-sm-max) {
             border-bottom: 1px solid @border-color;
+        }
+
+        @media (min-width: @screen-sm-min) {
+            position: absolute;
+            bottom: 2px;
+            right: 0;
+            left: 0;
         }
     }
 
     .second-nav {
         display: flex;
         justify-content: flex-end;
+    }
+
+    .basket_text {
+        display: none;
+        @media (min-width: @screen-sm-min) {
+            display: inline;
+        }
     }
 }
 

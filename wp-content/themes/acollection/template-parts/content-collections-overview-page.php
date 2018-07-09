@@ -31,7 +31,9 @@
                     $type = get_sub_field('collection');
                     $link = get_term_link($type);
                     $term = get_term($type);
-                    print_r(get_field('moodboard', $type));
+                    $mood_board = get_field('mood_board', $type);
+                    $display_name = get_field('display_name', $type);
+
                 ?>
                     <div class="col col--no-gutters col--sm-12 col--md-6 collections-grid">
                         <div class="moodboard">
@@ -42,7 +44,13 @@
                                             <div class="square">
                                                 <div class="content">
                                                     <a href="<?php echo $link; ?>">
-                                                        <img src="http://placebear.com/200/300" alt="">
+                                                        <img src="<?php echo $mood_board[0]['sizes']['medium']; ?>" alt="<?php echo $mood_board[0]['alt']; ?>">
+                                                        <span class="hover">
+                                                            <span class="hover-content">
+                                                                <span class="name"><?php echo $display_name['name']; ?></span>
+                                                                <span class="number"><?php echo $display_name['number']; ?></span>
+                                                            </span>
+                                                        </span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -51,7 +59,13 @@
                                             <div class="square">
                                                 <div class="content">
                                                     <a href="<?php echo $link; ?>">
-                                                        <img src="http://placebear.com/200/300" alt="">
+                                                        <img src="<?php echo $mood_board[1]['sizes']['medium']; ?>" alt="<?php echo $mood_board[1]['alt']; ?>">
+                                                        <span class="hover">
+                                                            <span class="hover-content">
+                                                                <span class="name"><?php echo $display_name['name']; ?></span>
+                                                                <span class="number"><?php echo $display_name['number']; ?></span>
+                                                            </span>
+                                                        </span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -61,7 +75,13 @@
                                         <div class="square">
                                             <div class="content">
                                                 <a href="<?php echo $link; ?>">
-                                                    <img src="http://placebear.com/200/300" alt="">
+                                                    <img src="<?php echo $mood_board[2]['sizes']['medium']; ?>" alt="<?php echo $mood_board[2]['alt']; ?>">
+                                                    <span class="hover">
+                                                            <span class="hover-content">
+                                                                <span class="name"><?php echo $display_name['name']; ?></span>
+                                                                <span class="number"><?php echo $display_name['number']; ?></span>
+                                                            </span>
+                                                        </span>
                                                 </a>
                                             </div>
                                         </div>
@@ -71,7 +91,13 @@
                                     <div class="square">
                                         <div class="content">
                                             <a href="<?php echo $link; ?>">
-                                                <img src="http://placebear.com/200/300" alt="">
+                                                <img src="<?php echo $mood_board[3]['sizes']['medium']; ?>" alt="<?php echo $mood_board[3]['alt']; ?>">
+                                                <span class="hover">
+                                                            <span class="hover-content">
+                                                                <span class="name"><?php echo $display_name['name']; ?></span>
+                                                                <span class="number"><?php echo $display_name['number']; ?></span>
+                                                            </span>
+                                                        </span>
                                             </a>
                                         </div>
                                     </div>
@@ -82,7 +108,13 @@
                                     <div class="square">
                                         <div class="content">
                                             <a href="<?php echo $link; ?>">
-                                                <img src="http://placebear.com/200/300" alt="">
+                                                <img src="<?php echo $mood_board[4]['sizes']['medium']; ?>" alt="<?php echo $mood_board[4]['alt']; ?>">
+                                                <span class="hover">
+                                                            <span class="hover-content">
+                                                                <span class="name"><?php echo $display_name['name']; ?></span>
+                                                                <span class="number"><?php echo $display_name['number']; ?></span>
+                                                            </span>
+                                                        </span>
                                             </a>
                                         </div>
                                     </div>
@@ -93,7 +125,13 @@
                                             <div class="square">
                                                 <div class="content">
                                                     <a href="<?php echo $link; ?>">
-                                                        <img src="http://placebear.com/200/300" alt="">
+                                                        <img src="<?php echo $mood_board[5]['sizes']['medium']; ?>" alt="<?php echo $mood_board[5]['alt']; ?>">
+                                                        <span class="hover">
+                                                            <span class="hover-content">
+                                                                <span class="name"><?php echo $display_name['name']; ?></span>
+                                                                <span class="number"><?php echo $display_name['number']; ?></span>
+                                                            </span>
+                                                        </span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -102,7 +140,13 @@
                                             <div class="square">
                                                 <div class="content">
                                                     <a href="<?php echo $link; ?>">
-                                                        <img src="http://placebear.com/200/300" alt="">
+                                                        <img src="<?php echo $mood_board[6]['sizes']['medium']; ?>" alt="<?php echo $mood_board[6]['alt']; ?>">
+                                                        <span class="hover">
+                                                            <span class="hover-content">
+                                                                <span class="name"><?php echo $display_name['name']; ?></span>
+                                                                <span class="number"><?php echo $display_name['number']; ?></span>
+                                                            </span>
+                                                        </span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -112,7 +156,13 @@
                                         <div class="square">
                                             <div class="content">
                                                 <a href="<?php echo $link; ?>">
-                                                    <img src="http://placebear.com/200/300" alt="">
+                                                    <img src="<?php echo $mood_board[7]['sizes']['medium']; ?>" alt="<?php echo $mood_board[7]['alt']; ?>">
+                                                    <span class="hover">
+                                                            <span class="hover-content">
+                                                                <span class="name"><?php echo $display_name['name']; ?></span>
+                                                                <span class="number"><?php echo $display_name['number']; ?></span>
+                                                            </span>
+                                                        </span>
                                                 </a>
                                             </div>
                                         </div>

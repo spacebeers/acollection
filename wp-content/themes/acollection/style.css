@@ -1327,10 +1327,19 @@ select::-ms-expand {
 }
 .site-header {
   margin-bottom: 20px;
+  position: relative;
 }
 @media (max-width: 1023px) {
   .site-header .top-menu {
     border-bottom: 1px solid #e3e3e3;
+  }
+}
+@media (min-width: 768px) {
+  .site-header .top-menu {
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    left: 0;
   }
 }
 .site-header .second-nav {
@@ -1342,6 +1351,14 @@ select::-ms-expand {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+.site-header .basket_text {
+  display: none;
+}
+@media (min-width: 768px) {
+  .site-header .basket_text {
+    display: inline;
+  }
 }
 #nav-toogle {
   padding: 0;
@@ -1613,6 +1630,33 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
 }
+.moodboard a:hover .hover {
+  opacity: 0.8;
+}
+.moodboard .hover {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  background: #DCDDDB;
+  text-align: center;
+  line-height: 100%;
+}
+.moodboard .hover-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 1;
+  line-height: 1.4rem;
+}
 .moodboard .moodboard--column {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -1627,6 +1671,29 @@ select::-ms-expand {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+.moodboard .moodboard--group_reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.moodboard .moodboard--column_tablet {
+  display: none;
+}
+@media (min-width: 768px) {
+  .moodboard .moodboard--column_tablet {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+@media (min-width: 1024px) {
+  .moodboard .moodboard--column_tablet {
+    display: none;
+  }
 }
 .moodboard .moodboard--column-small {
   -webkit-box-flex: 0.5;

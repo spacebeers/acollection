@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="basket-meta">
                                         <label for="stock">Quantity</label>
-                                        <select name="products[<?php echo $count; ?>][quantity]">
+                                        <select class="jsQuantity" data-id="<?php echo $item->id; ?>" name="products[<?php echo $count; ?>][quantity]">
                                             <?php for ($i = 1; $i <= get_field( "stock", $item->id ); $i++): ?>
                                                 <option value="<?php echo $i; ?>" <?php if ($i == $item->quantity): echo "selected"; endif; ?>><?php echo $i; ?></option>
                                             <?php endfor; ?>

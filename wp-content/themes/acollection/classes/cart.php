@@ -68,7 +68,7 @@
             // Send to appropriate email
             $to = get_theme_mod('acollection_enquiries_email');
             $subject = 'New website enquiry';
-            $headers[] = 'From: A Collection <me@example.net>';
+            $headers[] = 'From: A Collection <'.$to.'>';
             $headers[] = 'Cc: Atomic Horse <hello@atomichorse.agency>';
             $headers[] = "MIME-Version: 1.0";
             $headers[] = "Content-Type: text/html; charset=ISO-8859-1";
