@@ -33,18 +33,43 @@
         right: 5px;
         bottom: 5px;
         left: 5px;
-        background: @palette-lightest;
+        @media (min-width: @screen-sm-min) {
+            top: 12px;
+            right: 12px;
+            bottom: 12px;
+            left: 12px;
+        }
+        background: fade(@palette-lightest, 90%);
         text-align: center;
         line-height: 100%;
+        text-transform: uppercase;
     }
 
     .hover-content {
+        width: 100%;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         opacity: 1;
         line-height: 1.4rem;
+        font-size: @large-font-size;
+
+        .hover-name {
+            display: none;
+            @media (min-width: @screen-sm-min) {
+                display: inline;
+            }
+        }
+    }
+
+    .moodboard-group-small {
+        .hover-name {
+            display: none;
+            @media (min-width: @screen-md-min) {
+                display: inline;
+            }
+        }
     }
 
     .moodboard--column {
@@ -85,7 +110,11 @@
         justify-content: space-between;
     }
 
-    .moodboard-main {
+    .name {
+        display: none;
 
+        @media (min-width: @screen-sm-min) {
+            display: inline;
+        }
     }
 }

@@ -11,5 +11,5 @@
         <?php endfor; ?>
     </select>
     <input type="hidden" name="id" id="productID" value="<?php the_ID(); ?>" />
-    <button type="submit" class="btn-ghost btn-block">Add to your collection</button>
+    <button type="submit" class="btn-ghost btn-block">Add to collection</button>
 </form>

@@ -1,11 +1,23 @@
-.primary {
-  color: #96C1E8;
+.large-black {
+  font-size: 1.0rem;
+  color: #000;
+  text-transform: uppercase;
 }
 
-.secondary {
-  color: #0D2B4C;
+.large-grey {
+  font-size: 1.0rem;
+  color: #9d9d9c;
+  text-transform: uppercase;
 }
 
-.tertiary {
-  color: #EF7921;
+.small-black {
+  font-size: 0.7rem;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.small-grey {
+  font-size: 0.7rem;
+  color: #9d9d9c;
+  text-transform: uppercase;
 }

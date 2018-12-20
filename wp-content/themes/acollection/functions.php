@@ -130,58 +130,20 @@
             'sanitize_callback' => 'acollection_sanitize_dropdown_pages',
         ) );
 
+        $wp_customize->add_setting( 'acollection_page_text' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_page_text', array(
+		    'label'    => __( 'Products page text', 'acollection' ),
+		    'section'  => 'acollection_pages_section',
+		    'settings' => 'acollection_page_text',
+            'type'			 => 'textarea',
+            'sanitize_callback' => 'test_sanitize_text',
+        )));
+
         $wp_customize->add_control( 'acollection_pages_contact_link', array(
             'type' => 'dropdown-pages',
             'section' => 'acollection_pages_section',
             'label' => __( 'Contact page' ),
             'description' => __( 'Select a page to use as the contact page.' ),
-        ) );
-
-        $wp_customize->add_section( 'acollection_basket_section' , array(
-			'title'       => __( 'Order system', 'acollection' ),
-			'priority'    => 30,
-			'description' => 'Set any order system config here',
-        ));
-
-        $wp_customize->add_setting( 'acollection_enquiries_email' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_enquiries_email', array(
-		    'label'    => __( 'Equiries email address', 'acollection' ),
-		    'section'  => 'acollection_basket_section',
-		    'settings' => 'acollection_enquiries_email',
-            'type'	   => 'text'
-        )));
-
-        $wp_customize->add_setting( 'acollection_basket_text' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_basket_text', array(
-		    'label'    => __( 'Basket text', 'acollection' ),
-		    'section'  => 'acollection_basket_section',
-		    'settings' => 'acollection_basket_text',
-            'type'			 => 'textarea',
-            'sanitize_callback' => 'test_sanitize_text',
-        )));
-
-        $wp_customize->add_setting( 'acollection_pages_success_link', array(
-            'capability' => 'edit_theme_options',
-            'sanitize_callback' => 'acollection_sanitize_dropdown_pages',
-        ) );
-
-        $wp_customize->add_control( 'acollection_pages_success_link', array(
-            'type' => 'dropdown-pages',
-            'section' => 'acollection_basket_section',
-            'label' => __( 'Order complete page' ),
-            'description' => __( 'Select a page to use as the order complete page.' ),
-        ) );
-
-        $wp_customize->add_setting( 'acollection_pages_error_link', array(
-            'capability' => 'edit_theme_options',
-            'sanitize_callback' => 'acollection_sanitize_dropdown_pages',
-        ) );
-
-        $wp_customize->add_control( 'acollection_pages_error_link', array(
-            'type' => 'dropdown-pages',
-            'section' => 'acollection_basket_section',
-            'label' => __( 'Order error page' ),
-            'description' => __( 'Select a page to use as the order error page.' ),
         ) );
 
         function acollection_sanitize_dropdown_pages( $page_id, $setting ) {
@@ -291,7 +253,14 @@
         return $query;
         }
     }
+
     add_filter( 'pre_get_posts', 'acollection_add_custom_types' );
+
+        function wpb_mce_buttons_2($buttons) {
+        array_unshift($buttons, 'styleselect');
+        return $buttons;
+    }
+    add_filter('mce_buttons_2', 'wpb_mce_buttons_2');
 
     function my_mce4_options($init) {
 
@@ -309,4 +278,55 @@
         return $init;
     }
     add_filter('tiny_mce_before_init', 'my_mce4_options');
+    /*
+    * Callback function to filter the MCE settings
+    */
+
+    function my_mce_before_init_insert_formats( $init_array ) {
+
+    // Define the style_formats array
+
+        $style_formats = array(
+            /*
+            * Each array child is a format with it's own settings
+            * Notice that each array has title, block, classes, and wrapper arguments
+            * Title is the label which will be visible in Formats menu
+            * Block defines whether it is a span, div, selector, or inline style
+            * Classes allows you to define CSS classes
+            * Wrapper whether or not to add a new block-level element around any selected elements
+            */
+            array(
+                'title' => 'Large black',
+                'block' => 'span',
+                'classes' => 'large-black',
+                'wrapper' => true,
+
+            ),
+            array(
+                'title' => 'Large grey',
+                'block' => 'span',
+                'classes' => 'large-grey',
+                'wrapper' => true,
+            ),
+            array(
+                'title' => 'Small black',
+                'block' => 'span',
+                'classes' => 'small-black',
+                'wrapper' => true,
+            ),
+            array(
+                'title' => 'Small grey',
+                'block' => 'span',
+                'classes' => 'small-grey',
+                'wrapper' => true,
+            ),
+        );
+        // Insert the array, JSON ENCODED, into 'style_formats'
+        $init_array['style_formats'] = json_encode( $style_formats );
+
+        return $init_array;
+
+    }
+    // Attach callback to 'tiny_mce_before_init'
+    add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 ?>

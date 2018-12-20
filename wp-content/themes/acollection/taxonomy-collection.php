@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 	<section id="primary" class="category-listing">
 		<header class="archive-header text--xs-center">
-			<h1><?php single_term_title(); ?></h1>
-			<p>Collection</p>
+			<h1 class="underline"><?php single_term_title(); ?></h1>
+			<p class="sub-tag">Collection</p>
 		</header>
 
 		<?php if ( have_posts() ) : ?>
-		<div class="grid">
+		<div class="grid products-grid">
 			<div class="row">
 		<?php
 		while ( have_posts() ) :

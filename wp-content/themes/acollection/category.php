@@ -8,7 +8,7 @@
 <?php get_header(); ?>
 	<section id="primary" class="category-listing">
 		<header class="archive-header text--xs-center">
-			<h1><a href="<?php echo $parent_link; ?>"><?php echo $parent->name; ?></a></h1>
+			<h1 class="underline"><a href="<?php echo $parent_link; ?>"><?php echo $parent->name; ?></a></h1>
 			<ul class="sub-nav">
 				<?php foreach ($children as $child):
 					$child_term = get_term( $child, "category" );
@@ -20,7 +20,7 @@
 		</header>
 
 		<?php if ( have_posts() ) : ?>
-		<div class="grid">
+		<div class="grid products-grid">
 			<div class="row">
 		<?php
 		while ( have_posts() ) :
@@ -33,7 +33,6 @@
 			</div>
 		</div>
 		<?php else :
-				echo "NO!!!";
 				// If no content, include the "No posts found" template.
 				get_template_part( 'content', 'none' );
 			endif;

@@ -14,13 +14,35 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
+h1 {
+    font-size: @large-font-size;
+}
+
 h2 {
     font-size: @body-font-size;
 }
 
 .sub-title {
-    font-size: @body-font-size - 2px;
+    font-size: @med-font-size;
     color: @palette-light;
+    text-transform: uppercase;
+}
+
+.underline {
+    position: relative;
+    margin-bottom: 15px;
+
+    &::after {
+        content: "";
+        width: 20px;
+        height: 1px;
+        display: block;
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: @divider-color;
+    }
 }
 
 strong + strong {
@@ -50,8 +72,17 @@ ul {
     padding: 0 0 0 0;
 }
 
+p {
+    line-height: 2.4;
+}
+
+p + h2 {
+    margin: 10px 0 0 0;
+}
+
 ol {
-    margin-bottom: 20px;
+    margin: 0;
+    padding: 0 0 0 18px;
 }
 
 .text-uppercase {

@@ -3,7 +3,7 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 100%;
 }
 
 body {
@@ -11,9 +11,8 @@ body {
     font-family: @body-font;
     color: @body-font-color;
     font-size: @body-font-size;
-    text-transform: uppercase;
     font-weight: 300;
-    line-height: 2.6rem;
+    line-height: 2.5;
     letter-spacing: 2px;
     overflow-x: hidden;
     width: 95%;
@@ -23,6 +22,9 @@ body {
         max-width: @site-max-width;
     }
 
+    &.menu-open {
+        overflow: hidden;
+    }
 }
 
 body > div:first-child {
@@ -39,6 +41,12 @@ body > div:first-child {
 }
 
 .home {
+    .content {
+        border: none;
+    }
+}
+
+.archive {
     .content {
         border: none;
     }
@@ -64,4 +72,13 @@ body > div:first-child {
 .constrain {
     width: 85%;
     margin: 0 auto;
+}
+
+.head-content {
+    width: 80%;
+    margin: 10px auto;
+
+    @media (min-width: @screen-md-min) {
+        width: 50%;
+    }
 }

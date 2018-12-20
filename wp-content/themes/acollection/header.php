@@ -5,7 +5,7 @@
     <title><?php wp_title(); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/style.css?bust=0.0.1">
 	<?php wp_head(); ?>
 </head>
 
@@ -13,35 +13,34 @@
     <div class="grid grid--container">
         <header class="site-header" id="header">
             <div class="top-menu">
-                <div class="grid grid--no-gutters">
-                    <div class="row row--no-gutters">
-                        <div class="col--no-gutters col col--xs-3 col--sm-8">
+                <div class="grid">
+                    <div class="row">
+                        <div class="col col--xs-3 col--sm-8">
                             <button id="nav-toogle">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/menu.png" alt="menu">
                             </button>
 
                             <div id="mobile-menu">
                                 <ul>
-                                    <?php wp_nav_menu( array('menu' => 'main_menu', 'items_wrap' => '%3$s', 'container' => false ) ); ?>
-                                    <?php wp_nav_menu( array('menu' => 'secondary', 'items_wrap' => '%3$s', 'container' => false ) ); ?>
+                                    <?php
+                                        wp_nav_menu( array(
+                                            'menu'              => 'main_menu',
+                                            'theme_location'    => 'main_menu',
+                                            'depth'             => 1,
+                                            'container'         => false,
+                                            'items_wrap' => '%3$s')
+                                        );
+
+                                        wp_nav_menu( array(
+                                            'menu'              => 'secondary_menu',
+                                            'theme_location'    => 'secondary_menu',
+                                            'depth'             => 1,
+                                            'container'         => false,
+                                            'items_wrap' => '%3$s')
+                                        );
+                                    ?>
                                 </ul>
                             </div>
-
-                            <div class="tablet-nav">
-                                <?php
-                                    wp_nav_menu( array(
-                                        'menu'              => 'main_menu',
-                                        'theme_location'    => 'main_menu',
-                                        'depth'             => 1,
-                                        'container'         => 'nav',
-                                        'container_class'   => 'main-menu',
-                                        'menu_class'        => 'nav')
-                                    );
-                                ?>
-                            </div>
-                        </div>
-                        <div class="col--no-gutters col col--xs-9 col--sm-4">
-                            <a href="<?php do_action( 'basket_url' ); ?>" id="basket"><span class="basket_text">Your collection</span> <span class="badge"></span></a>
                         </div>
                     </div>
                 </div>

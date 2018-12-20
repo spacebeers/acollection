@@ -123,4 +123,14 @@ jQuery(document).ready(function () {
     jQuery.validate({
         form: '#enquiries_form'
     });
+
+    jQuery(".newsletter-lightbox a").on('click', function(e) {
+        e.preventDefault();
+        jQuery('#newsletterModal').css('display', 'block');
+    })
+
+    jQuery(".close").on('click', function(e) {
+        e.preventDefault();
+        jQuery('#newsletterModal').css('display', 'none');
+    })
 });

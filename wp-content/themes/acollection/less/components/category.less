@@ -1,11 +1,56 @@
-.category {
+.archive-header {
+    border: 1px solid @border-color;
+    border-bottom: none;
+    padding: 30px 20px 15px 20px;
+}
+
+.products-grid {
+    .row {
+        margin: -1rem -0.9rem 1rem -0.9rem;
+
+        .col {
+            padding: 1rem 0.4rem 0 0.4rem;
+        }
+    }
+}
+
+.page-template-collections-overview-page {
     .content {
         border: none;
     }
 
-    .archive-header {
-        border: 1px solid @border-color;
-        border-bottom: none;
+    h2 {
+        position: relative;
+        margin-bottom: 0;
+        font-size: @med-font-size;
+        line-height: 1.8;
+    }
+
+    .sub-title {
+        color: @palette-darkest;
+    }
+}
+
+.tax-collection {
+    .content {
+        border: none;
+    }
+
+    h2 {
+        position: relative;
+        margin-bottom: 0;
+        font-size: @med-font-size;
+        line-height: 1.8;
+    }
+
+    .sub-title {
+        color: @palette-darkest;
+    }
+}
+
+.category, .tax-collection {
+    .content {
+        border: none;
     }
 
     section.category-listing {
@@ -13,7 +58,7 @@
     }
 
     .grid {
-        margin-top: -22px;
+        //margin-top: -22px;
     }
 }
 
@@ -25,28 +70,46 @@
         width: 100%;
         height: auto;
     }
+
+    h2 {
+        position: relative;
+        margin-bottom: 0;
+        font-size: @med-font-size;
+        line-height: 1.8;
+    }
+
+    .sub-title {
+        color: @palette-darkest;
+    }
 }
 
 .listing-item {
     margin-bottom: @content-gap;
-    padding-bottom: @content-gap;
+    padding-bottom: 11px;
+    padding-top: 0;
 }
 
 .category-description {
     margin-top: @content-gap;
 }
 
+.sub-tag {
+    margin-bottom: 18px;
+}
+
 .sub-nav {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     list-style: none;
 
     li {
-        padding: 10px;
+        padding: 0 10px;
     }
 
     a {
         text-transform: uppercase;
+        font-size: @med-font-size;
     }
 }
 

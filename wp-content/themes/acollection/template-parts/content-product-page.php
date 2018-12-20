@@ -17,13 +17,20 @@
                     <h1 class="title-text"><?php the_title(); ?></h1>
                     <small><?php the_field('product_number'); ?></small>
 
-                    <p>
-                        Dimension: <?php echo $product_dimensions; ?><br />
-                        <?php if (get_field('colour')): echo "Colour: " . get_field('colour') . "<br />"; endif; ?>
-                        <?php if (get_field('material')): echo "Material: " . get_field('material') . "<br />"; endif; ?>
-                    </p>
+                    <?php if (get_field('price')): ?>
+                        <p class="product-price">
+                            &pound;<?php the_field('price'); ?>
+                        </p>
+                    <?php endif; ?>
+                    <ul class="feature-list">
+                        <li>Dimension: <?php echo $product_dimensions; ?></li>
+                        <?php if (get_field('colour')): echo "<li>Colour: " . get_field('colour') . "</li>"; endif; ?>
+                        <?php if (get_field('material')): echo "<li>Material: " . get_field('material') . "</li>"; endif; ?>
+                    </ul>
 
-                    <?php include(locate_template('template-parts/content-product-form.php')); ?>
+                    <div class="product-notes">
+                        <?php the_content(); ?>
+                    </div>
                 </div>
             </div>
         </div>

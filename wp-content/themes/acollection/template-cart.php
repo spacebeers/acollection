@@ -4,9 +4,10 @@
 
 <?php get_header(); ?>
     <div class="text--xs-center padded-page cart-page">
-
-        <h1>Enquiry Form</h1>
-        <h2>Your collection</h2>
+         <header class="archive-header text--xs-center">
+            <h1 class="underline">Enquiry Form</h1>
+            <p class="sub-title">Your collection</p>
+        </header>
 
         <form id="enquiries_form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" novalidate>
             <div class="grid grid--no-gutters text--xs-center">
@@ -24,14 +25,16 @@
                             ?>
 
                                 <div class="basket-item">
-                                    <div class="basket-image">
-                                        <a href="<?php the_permalink($item->id); ?>">
-                                            <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="<?php echo $item->name; ?>">
-                                        </a>
-                                    </div>
-                                    <div class="basket-content">
-                                        <h3><a href="<?php the_permalink($item->id); ?>"><?php echo $the_post->post_title; ?></a></h3>
-                                        <p><?php echo get_field( "product_number", $item->id ); ?></p>
+                                    <div class="basket-product">
+                                        <div class="basket-image">
+                                            <a href="<?php the_permalink($item->id); ?>">
+                                                <img src="<?php echo get_the_post_thumbnail_url($item->id); ?>" alt="<?php echo $item->name; ?>">
+                                            </a>
+                                        </div>
+                                        <div class="basket-content">
+                                            <h3><a href="<?php the_permalink($item->id); ?>"><?php echo $the_post->post_title; ?></a></h3>
+                                            <p><?php echo get_field( "product_number", $item->id ); ?></p>
+                                        </div>
                                     </div>
                                     <div class="basket-meta">
                                         <label for="stock">Quantity</label>
@@ -45,7 +48,7 @@
                                         <button class="jsDelete" data-id="<?php echo $item->id; ?>">x</button>
                                     </div>
                                 </div>
-                        <?php
+                                <?php
                                     $count++;
                                 endif;
                             endforeach;
@@ -87,13 +90,13 @@
                                         <div class="col col--md-6">
                                             <div class="input date-input">
                                                 <label for="from_date">From date *</label>
-                                                <input type="text" placeholder="DD/MM/YYYY" readonly name="details[from_date]" id="from_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
+                                                <input type="text" placeholder="DD/MM/YYYY" readonly name="details[from_date]" id="from_date" class="datepicker-here" data-position="top center" data-date-format='dd/mm/yyyy' data-language='en' data-validation="required" />
                                             </div>
                                         </div>
                                         <div class="col col--md-6">
                                             <div class="input date-input">
                                                 <label for="return_date">Return date *</label>
-                                                <input type="text" placeholder="DD/MM/YYYY" readonly name="details[return_date]" id="return_date" class="datepicker-here" data-position="top center" data-language='en' data-validation="required" />
+                                                <input type="text" placeholder="DD/MM/YYYY" readonly name="details[return_date]" id="return_date" class="datepicker-here" data-position="top center" data-date-format='dd/mm/yyyy' data-language='en' data-validation="required" />
                                             </div>
                                         </div>
                                     </div>
@@ -133,7 +136,7 @@
                         </div>
                     <?php endif;?>
 
-                    <p class="text--xs-center text--sm-left">
+                    <p class="text--xs-center text--sm-left basket-text">
                         <?php echo $backet_text; ?>
                     </p>
                 </div>
