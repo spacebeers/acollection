@@ -29,16 +29,10 @@
         opacity: 0;
         transition: opacity 0.2s linear;
         position: absolute;
-        top: 5px;
-        right: 5px;
-        bottom: 5px;
-        left: 5px;
-        @media (min-width: @screen-sm-min) {
-            top: 12px;
-            right: 12px;
-            bottom: 12px;
-            left: 12px;
-        }
+        top: 12px;
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
         background: fade(@palette-lightest, 90%);
         text-align: center;
         line-height: 100%;
@@ -54,22 +48,6 @@
         opacity: 1;
         line-height: 1.4rem;
         font-size: @large-font-size;
-
-        .hover-name {
-            display: none;
-            @media (min-width: @screen-sm-min) {
-                display: inline;
-            }
-        }
-    }
-
-    .moodboard-group-small {
-        .hover-name {
-            display: none;
-            @media (min-width: @screen-md-min) {
-                display: inline;
-            }
-        }
     }
 
     .moodboard--column {
@@ -114,7 +92,7 @@
         display: none;
 
         @media (min-width: @screen-sm-min) {
-            display: inline;
+            display: block;
         }
     }
 }

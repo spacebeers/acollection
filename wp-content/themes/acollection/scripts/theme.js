@@ -114,9 +114,8 @@ jQuery(document).ready(function () {
         ACollection.updateItem($this.attr('data-id'), $this.val());
     })
 
-    jQuery("#nav-toogle").click(function () {
+    jQuery(".nav-toogle").click(function () {
         jQuery("#mobile-menu").fadeToggle(200);
-        jQuery(this).toggleClass('btn-close');
         jQuery('body').toggleClass('menu-open');
     });
 
@@ -133,4 +132,15 @@ jQuery(document).ready(function () {
         e.preventDefault();
         jQuery('#newsletterModal').css('display', 'none');
     })
+
+    jQuery('.fade').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        adaptiveHeight: true,
+        autoplay: true,
+        cssEase: 'linear'
+    });
+
 });

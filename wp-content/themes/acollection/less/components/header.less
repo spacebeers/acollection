@@ -25,39 +25,52 @@
     }
 
     .logo {
-        margin-right: auto;
-        margin-left: auto;
         margin-top: -30px;
         @media (min-width: @screen-sm-min) {
             margin-top: 0;
-        }
-
-        a:hover {
-            text-decoration: none;
         }
     }
 }
 
 // Mobile nav
-#nav-toogle {
-    @media (min-width: @screen-md-min) {
+.nav-toogle {
+    @media (min-width: @screen-sm-min) {
         display: none;
     }
     padding: 0;
     margin: 0;
-    z-index: 3;
+    z-index: 2;
     position: relative;
+}
 
-    img {
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
+.close {
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: 0;
+}
+
+.menu-open {
+    .open {
+        display: none;
+    }
+
+    .close {
+        display: block;
     }
 }
 
+.nav-toogle img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+
 #mobile-menu {
     display: none;
-    @media (max-width: @screen-sm-max) {
+    @media (max-width: @screen-xs-max) {
+        text-align: center;
         display: none;
         position: fixed;
         top: 0;
@@ -65,14 +78,38 @@
         bottom: 0;
         left: 0;
         background: @body-bg-color;
-        z-index: 2;
-        padding: 105px 20px 20px 50px;
+        z-index: 1;
+        padding: 80px 20px 20px 20px;
+        font-size: 1.4rem;
+        text-transform: uppercase;
     }
 
     ul {
+        padding: 0;
+        margin: 0;
         list-style: none;
-        text-transform: uppercase;
-        font-size: 14px;
+        display: inline-block;
+    }
+
+    li + li {
+        border-top: 1px solid @divider-color;
+    }
+}
+
+// Tablet nav
+.tablet-nav {
+    display: none;
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        display: block;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+    }
+
+    li {
+        margin-right: 15px;
     }
 }
 
@@ -80,7 +117,7 @@
     position: absolute;
     top: 0;
     display: none;
-    z-index: 2;
+    z-index: 1;
     @media (min-width: @screen-md-min) {
         display: block;
     }
@@ -110,7 +147,7 @@
 
     &.side-nav-right {
         right: -45px;
-        top: 290px;
+        top: 205px;
         transform-origin: right top;
         transform: rotate(90deg) translateY(0);
 
@@ -122,13 +159,17 @@
 
 
 .site-logo {
-    width: 65%;
     display: block;
     margin-right: auto;
     margin-left: auto;
+    width: 65%;
     white-space: nowrap;
     text-align: center;
     text-transform: uppercase;
+
+    @media (min-width: @screen-sm-min) {
+        width: 40%;
+    }
 
     img {
         width: 100%;

@@ -16,8 +16,12 @@
                 <div class="grid">
                     <div class="row">
                         <div class="col col--xs-3 col--sm-8">
-                            <button id="nav-toogle">
-                                <img src="<?php bloginfo('template_directory'); ?>/assets/menu.png" alt="menu">
+                            <button class="open nav-toogle">
+                                <img src="<?php bloginfo('template_directory'); ?>/assets/menu.png" alt="open menu image">
+                            </button>
+
+                            <button class="close nav-toogle">
+                                <img src="<?php bloginfo('template_directory'); ?>/assets/cross.png" alt="close menu image">
                             </button>
 
                             <div id="mobile-menu">
@@ -26,7 +30,7 @@
                                         wp_nav_menu( array(
                                             'menu'              => 'main_menu',
                                             'theme_location'    => 'main_menu',
-                                            'depth'             => 1,
+                                            'depth'             => 2,
                                             'container'         => false,
                                             'items_wrap' => '%3$s')
                                         );

@@ -24,6 +24,8 @@
         wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Cantarell:400,700', false );
         wp_enqueue_style( 'acollection-datepicker', get_template_directory_uri() . '/vendor/air-datepicker/dist/css/datepicker.min.css', false );
         wp_enqueue_style( 'wpb-editor', get_template_directory_uri() . '/editor-style.css', false );
+        wp_enqueue_style( 'slick', get_template_directory_uri() . '/vendor/slick/slick.css', false);
+        wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/vendor/slick/slick-theme.css', false);
         wp_enqueue_style( 'acollection-validator', get_template_directory_uri() . '/vendor/jquery-form-validator/form-validator/theme-default.min.css', false );
     }
 
@@ -37,6 +39,7 @@
         wp_enqueue_script( 'acollection-datepicker', get_template_directory_uri() . '/vendor/air-datepicker/dist/js/datepicker.min.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'acollection-datepicker-lang', get_template_directory_uri() . '/vendor/air-datepicker/dist/js/i18n/datepicker.en.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'acollection-theme', get_template_directory_uri() . '/scripts/theme.js', array ( 'jquery' ), 1.1, true);
+        wp_enqueue_script( 'slick', get_template_directory_uri() . '/vendor/slick/slick.min.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'acollection-validation', get_template_directory_uri() . '/vendor/jquery-form-validator/form-validator/jquery.form-validator.min.js', array ( 'jquery' ), 1.1, true);
     }
     add_action( 'wp_enqueue_scripts', 'acollection_vendor_scripts' );
@@ -48,14 +51,27 @@
             array(
                 'labels' => array(
                     'name' => __( 'Products' ),
-                    'singular_name' => __( 'Prodcut' )
+                    'singular_name' => __( 'Product' )
                 ),
                 'public' => true,
                 'has_archive' => true,
-                'rewrite' => array('slug' => 'product'),
+                'rewrite' => array('slug' => 'products'),
                 'supports' => array('title', 'thumbnail', 'editor'),
                 'show_in_nav_menus'   => true,
                 'taxonomies'  => array( 'category' )
+            )
+        );
+        register_post_type('Event',
+            array(
+                'labels' => array(
+                    'name' => __( 'Events' ),
+                    'singular_name' => __( 'Event' )
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'events'),
+                'supports' => array('title', 'thumbnail', 'editor'),
+                'show_in_nav_menus'   => true
             )
         );
     }
@@ -135,6 +151,15 @@
 		    'label'    => __( 'Products page text', 'acollection' ),
 		    'section'  => 'acollection_pages_section',
 		    'settings' => 'acollection_page_text',
+            'type'			 => 'textarea',
+            'sanitize_callback' => 'test_sanitize_text',
+        )));
+
+        $wp_customize->add_setting( 'acollection_event_subtitle' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'acollection_event_subtitle', array(
+		    'label'    => __( 'Events page text', 'acollection' ),
+		    'section'  => 'acollection_pages_section',
+		    'settings' => 'acollection_event_subtitle',
             'type'			 => 'textarea',
             'sanitize_callback' => 'test_sanitize_text',
         )));
