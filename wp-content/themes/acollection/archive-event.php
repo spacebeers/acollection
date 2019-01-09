@@ -19,7 +19,11 @@
 		while ( have_posts() ) :
 			the_post(); ?>
 			<div class="col col--no-gutters col--sm-12 col--md-6 collections-grid">
-				<?php include(locate_template('template-parts/content-event-listing.php')); ?>
+				<?php if (get_field('mood_board_4')): ?>
+					<?php include(locate_template('template-parts/content-event-listing-small.php')); ?>
+				<?php else: ?>
+					<?php include(locate_template('template-parts/content-event-listing.php')); ?>
+				<?php endif; ?>
 				<?php $count++; ?>
 			</div>
 		<?php

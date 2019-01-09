@@ -1,6 +1,10 @@
 <?php
     $dimensions = get_field('dimensions');
-    $mood_board = get_field('mood_board');
+    if (get_field('mood_board_4')):
+        $mood_board = get_field('mood_board_4');
+    else:
+        $mood_board = get_field('mood_board');
+    endif;
     $product_dimensions = $dimensions['width'] . ", " . $dimensions['depth'] . ", " . $dimensions['height'] . " " . $dimensions['units'];
     $stock = get_field('stock');
 ?>

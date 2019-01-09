@@ -1,5 +1,5 @@
 <?php
-    include('classes/cart.php');
+    //include('classes/cart.php');
 
     // Menus
 	register_nav_menus( array(
@@ -74,6 +74,21 @@
                 'show_in_nav_menus'   => true
             )
         );
+    }
+
+
+    /**
+     * Show all Portfolio CPT items on archive
+     *
+     */
+
+    add_action( 'pre_get_posts', 'acollection_show_all_work' );
+
+    function acollection_show_all_work( $query ) {
+
+        if ($query->is_main_query() ) {
+            $query->set('posts_per_page', -1 );
+        }
     }
 
     add_theme_support( 'post-thumbnails' );
@@ -191,24 +206,6 @@
     add_action( 'customize_register', 'acollection_theme_customizer' );
 
     // Theme customisers ends
-
-    // display custom admin notice
-    function acollection_custom_admin_notice() { ?>
-
-        <div class="notice notice-error">
-            <p><?php _e('Basket system is not configured correctly. Please see the theme customiser', 'acollection'); ?></p>
-        </div>
-
-    <?php }
-    if ( get_theme_mod( 'acollection_pages_error_link') == '' ):
-        add_action('admin_notices', 'acollection_custom_admin_notice');
-    endif;
-    if ( get_theme_mod( 'acollection_pages_success_link') == '' ):
-        add_action('admin_notices', 'acollection_custom_admin_notice');
-    endif;
-    if ( get_theme_mod( 'acollection_enquiries_email') == '' ):
-        add_action('admin_notices', 'acollection_custom_admin_notice');
-    endif;
 
     // Sidebars
 
