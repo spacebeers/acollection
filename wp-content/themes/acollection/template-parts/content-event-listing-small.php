@@ -5,7 +5,7 @@
     <div class="moodboard--column">
         <div class="moodboard-group-smaller">
             <a href="<?php the_permalink(); ?>">
-                <img src="<?php echo $mood_board[0]['sizes']['large']; ?>" alt="<?php echo $mood_board[0]['alt']; ?>">
+                <img src="<?php echo $mood_board[0]['sizes']['wordpress-landscape']; ?>" alt="<?php echo $mood_board[0]['alt']; ?>">
                 <span class="hover">
                     <span class="hover-content">
                         READ MORE
@@ -17,7 +17,7 @@
             <div class="square">
                 <div class="content">
                     <a href="<?php the_permalink(); ?>">
-                        <img src="<?php echo $mood_board[1]['sizes']['large']; ?>" alt="<?php echo $mood_board[1]['alt']; ?>">
+                        <img src="<?php echo $mood_board[1]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[1]['alt']; ?>">
                         <span class="hover">
                             <span class="hover-content">
                                 READ MORE
@@ -33,7 +33,7 @@
             <div class="square">
                 <div class="content">
                     <a href="<?php the_permalink(); ?>">
-                        <img src="<?php echo $mood_board[2]['sizes']['large']; ?>" alt="<?php echo $mood_board[2]['alt']; ?>">
+                        <img src="<?php echo $mood_board[2]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[2]['alt']; ?>">
                         <span class="hover">
                             <span class="hover-content">
                                 READ MORE
@@ -45,7 +45,7 @@
         </div>
         <div class="moodboard-group-smaller">
             <a href="<?php the_permalink(); ?>">
-                <img src="<?php echo $mood_board[3]['sizes']['large']; ?>" alt="<?php echo $mood_board[3]['alt']; ?>">
+                <img src="<?php echo $mood_board[3]['sizes']['wordpress-landscape']; ?>" alt="<?php echo $mood_board[3]['alt']; ?>">
                 <span class="hover">
                     <span class="hover-content">
                         READ MORE

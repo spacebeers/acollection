@@ -45,7 +45,7 @@
                                             <div class="square">
                                                 <div class="content">
                                                     <a href="<?php echo $link; ?>">
-                                                        <img src="<?php echo $mood_board[0]['sizes']['large']; ?>" alt="<?php echo $mood_board[0]['alt']; ?>">
+                                                        <img src="<?php echo $mood_board[0]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[0]['alt']; ?>">
                                                         <span class="hover">
                                                             <span class="hover-content">
                                                                 <span class="name"><?php echo $display_name['name']; ?></span>
@@ -60,7 +60,7 @@
                                             <div class="square">
                                                 <div class="content">
                                                     <a href="<?php echo $link; ?>">
-                                                        <img src="<?php echo $mood_board[1]['sizes']['large']; ?>" alt="<?php echo $mood_board[1]['alt']; ?>">
+                                                        <img src="<?php echo $mood_board[1]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[1]['alt']; ?>">
                                                         <span class="hover">
                                                             <span class="hover-content">
                                                                 <span class="name"><?php echo $display_name['name']; ?></span>
@@ -76,7 +76,7 @@
                                         <div class="square">
                                             <div class="content">
                                                 <a href="<?php echo $link; ?>">
-                                                    <img src="<?php echo $mood_board[2]['sizes']['large']; ?>" alt="<?php echo $mood_board[2]['alt']; ?>">
+                                                    <img src="<?php echo $mood_board[2]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[2]['alt']; ?>">
                                                     <span class="hover">
                                                             <span class="hover-content">
                                                                 <span class="name"><?php echo $display_name['name']; ?></span>
@@ -92,7 +92,7 @@
                                     <div class="square">
                                         <div class="content">
                                             <a href="<?php echo $link; ?>">
-                                                <img src="<?php echo $mood_board[3]['sizes']['large']; ?>" alt="<?php echo $mood_board[3]['alt']; ?>">
+                                                <img src="<?php echo $mood_board[3]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[3]['alt']; ?>">
                                                 <span class="hover">
                                                             <span class="hover-content">
                                                                 <span class="name"><?php echo $display_name['name']; ?></span>
@@ -109,7 +109,7 @@
                                     <div class="square">
                                         <div class="content">
                                             <a href="<?php echo $link; ?>">
-                                                <img src="<?php echo $mood_board[4]['sizes']['large']; ?>" alt="<?php echo $mood_board[4]['alt']; ?>">
+                                                <img src="<?php echo $mood_board[4]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[4]['alt']; ?>">
                                                 <span class="hover">
                                                     <span class="hover-content">
                                                         <span class="name"><?php echo $display_name['name']; ?></span>
@@ -126,7 +126,7 @@
                                             <div class="square">
                                                 <div class="content">
                                                     <a href="<?php echo $link; ?>">
-                                                        <img src="<?php echo $mood_board[5]['sizes']['large']; ?>" alt="<?php echo $mood_board[5]['alt']; ?>">
+                                                        <img src="<?php echo $mood_board[5]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[5]['alt']; ?>">
                                                         <span class="hover">
                                                             <span class="hover-content">
                                                                 <span class="name"><?php echo $display_name['name']; ?></span>
@@ -141,7 +141,7 @@
                                             <div class="square">
                                                 <div class="content">
                                                     <a href="<?php echo $link; ?>">
-                                                        <img src="<?php echo $mood_board[6]['sizes']['large']; ?>" alt="<?php echo $mood_board[6]['alt']; ?>">
+                                                        <img src="<?php echo $mood_board[6]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[6]['alt']; ?>">
                                                         <span class="hover">
                                                             <span class="hover-content">
                                                                 <span class="name"><?php echo $display_name['name']; ?></span>
@@ -157,7 +157,7 @@
                                         <div class="square">
                                             <div class="content">
                                                 <a href="<?php echo $link; ?>">
-                                                    <img src="<?php echo $mood_board[7]['sizes']['large']; ?>" alt="<?php echo $mood_board[7]['alt']; ?>">
+                                                    <img src="<?php echo $mood_board[7]['sizes']['wordpress-thumbnail']; ?>" alt="<?php echo $mood_board[7]['alt']; ?>">
                                                     <span class="hover">
                                                             <span class="hover-content">
                                                                 <span class="name"><?php echo $display_name['name']; ?></span>

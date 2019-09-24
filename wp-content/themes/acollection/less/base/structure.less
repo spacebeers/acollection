@@ -44,12 +44,22 @@ body > div:first-child {
     border: none;
 }
 
+.col--sm-5 + .col--sm-5 {
+    @media (max-width: 543px) {
+        padding-top: 0;
+    }
+}
+
 .head-content {
     width: 80%;
     @media (min-width: @screen-md) {
         width: 50%;
     }
     margin: 0 auto 20px auto;
+
+    a {
+        display: inline !important;
+    }
 }
 
 .home {

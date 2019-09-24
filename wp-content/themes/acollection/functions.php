@@ -351,4 +351,10 @@
     }
     // Attach callback to 'tiny_mce_before_init'
     add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
+
+    add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+    function wpdocs_theme_setup() {
+        add_image_size( 'wordpress-thumbnail', 400, 400, TRUE );
+        add_image_size( 'wordpress-landscape', 400, 260, TRUE );
+    }
 ?>
