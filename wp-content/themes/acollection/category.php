@@ -33,9 +33,10 @@
 			</div>
 		</div>
 		<?php else :
-				echo "NO!!!";
-				// If no content, include the "No posts found" template.
-				get_template_part( 'content', 'none' );
+				global $wp_query;
+				$wp_query->set_404();
+				status_header( 404 );
+				get_template_part( 404 ); exit();
 			endif;
 		?>
 	</section>
